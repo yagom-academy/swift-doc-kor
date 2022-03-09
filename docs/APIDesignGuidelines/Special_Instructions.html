@@ -1,0 +1,365 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Special Instructions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Revision_History.html" />
+    
+    
+    <link rel="prev" href="Conventions.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Design Guidelines</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="Fundamentals.html">
+            
+                <a href="Fundamentals.html">
+            
+                    
+                    Fundamentals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Naming.html">
+            
+                <a href="Naming.html">
+            
+                    
+                    Naming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Conventions.html">
+            
+                <a href="Conventions.html">
+            
+                    
+                    Conventions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="Special_Instructions.html">
+            
+                <a href="Special_Instructions.html">
+            
+                    
+                    Special Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="Revision_History.html">
+            
+                <a href="Revision_History.html">
+            
+                    
+                    Revision History
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Special Instructions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="special-instructions">Special Instructions</h1>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Label tuple members and name closure parameters</strong> where they appear in your API.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">These names have explanatory power, can be referenced from documentation comments, and provide expressive access to tuple members.</span></i></p>
+<pre><code class="lang-swift">  <span class="hljs-comment">/// Ensure that we hold uniquely-referenced storage for at least</span>
+  <span class="hljs-comment">/// `requestedCapacity` elements.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// If more storage is needed, `allocate` is called with</span>
+  <span class="hljs-comment">/// `byteCount` equal to the number of maximally-aligned</span>
+  <span class="hljs-comment">/// bytes to allocate.</span>
+  <span class="hljs-comment">///</span>
+  <span class="hljs-comment">/// - Returns:</span>
+  <span class="hljs-comment">///   - reallocated: `true` iff a new block of memory</span>
+  <span class="hljs-comment">///     was allocated.</span>
+  <span class="hljs-comment">///   - capacityChanged: `true` iff `capacity` was updated.</span>
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ensureUniqueStorage</span><span class="hljs-params">(
+      minimumCapacity requestedCapacity: Int, 
+      allocate: <span class="hljs-params">(<span class="hljs-number">_</span> byteCount: Int)</span></span></span> -&gt; <span class="hljs-type">UnsafePointer</span>&lt;<span class="hljs-type">Void</span>&gt;
+  ) -&gt; (reallocated: <span class="hljs-type">Bool</span>, capacityChanged: <span class="hljs-type">Bool</span>)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Names used for closure parameters should be chosen like <code>parameter names</code> for top-level functions. Labels for closure arguments that appear at the call site are not supported.</span></i></p>
+</li>
+</ul>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Take extra care with unconstrained polymorphism</strong> (e.g. Any, AnyObject, and unconstrained generic parameters) to avoid ambiguities in overload sets.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">For example, consider this overload set:</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Array</span> </span>{
+      <span class="hljs-comment">/// Inserts `newElement` at `self.endIndex`.</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElement: Element)</span></span>
+
+      <span class="hljs-comment">/// Inserts the contents of `newElements`, in order, at</span>
+      <span class="hljs-comment">/// `self.endIndex`.</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElements: S)</span></span>
+          <span class="hljs-keyword">where</span> <span class="hljs-type">S</span>.<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span> == <span class="hljs-type">Element</span>
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">These methods form a semantic family, and the argument types appear at first to be sharply distinct. However, when Element is Any, a single element can have the same type as a sequence of elements.</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-keyword">var</span> values: [<span class="hljs-type">Any</span>] = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;a&quot;</span>]
+  values.append([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]) <span class="hljs-comment">// [1, &quot;a&quot;, [2, 3, 4]] or [1, &quot;a&quot;, 2, 3, 4]?</span>
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">To eliminate the ambiguity, name the second overload more explicitly.</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Array</span> </span>{
+      <span class="hljs-comment">/// Inserts `newElement` at `self.endIndex`.</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElement: Element)</span></span>
+
+      <span class="hljs-comment">/// Inserts the contents of `newElements`, in order, at</span>
+      <span class="hljs-comment">/// `self.endIndex`.</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(contentsOf newElements: S)</span></span>
+          <span class="hljs-keyword">where</span> <span class="hljs-type">S</span>.<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span> == <span class="hljs-type">Element</span>
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Notice how the new name better matches the documentation comment. In this case, the act of writing the documentation comment actually brought the issue to the API author&#x2019;s attention.</span><i></i></i></p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Conventions.html" class="navigation navigation-prev " aria-label="Previous page: Conventions">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Revision_History.html" class="navigation navigation-next " aria-label="Next page: Revision History">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Special Instructions","level":"2.4","depth":1,"next":{"title":"Revision History","level":"3.1","depth":1,"path":"APIDesignGuidelines/Revision_History.md","ref":"APIDesignGuidelines/Revision_History.md","articles":[]},"previous":{"title":"Conventions","level":"2.3","depth":1,"path":"APIDesignGuidelines/Conventions.md","ref":"APIDesignGuidelines/Conventions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Special_Instructions.md","mtime":"2022-03-09T05:13:38.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T06:16:23.800Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

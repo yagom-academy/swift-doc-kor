@@ -1,0 +1,529 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Conventions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Special_Instructions.html" />
+    
+    
+    <link rel="prev" href="Naming.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Design Guidelines</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="Fundamentals.html">
+            
+                <a href="Fundamentals.html">
+            
+                    
+                    Fundamentals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Naming.html">
+            
+                <a href="Naming.html">
+            
+                    
+                    Naming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="Conventions.html">
+            
+                <a href="Conventions.html">
+            
+                    
+                    Conventions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Special_Instructions.html">
+            
+                <a href="Special_Instructions.html">
+            
+                    
+                    Special Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="Revision_History.html">
+            
+                <a href="Revision_History.html">
+            
+                    
+                    Revision History
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Conventions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="conventions">Conventions</h1>
+<h2 id="general-conventions">General Conventions</h2>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Document the complexity of any computed property that is not O(1).</strong> People often assume that property access involves no significant computation, because they have stored properties as a mental model. Be sure to alert them when that assumption may be violated.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Prefer methods and properties to free functions.</strong> Free functions are used only in special cases:</span></i></p>
+<ol>
+<li><p><i><span style="color: #C0C0C0">When there&#x2019;s no obvious self:</span></i></p>
+<pre><code class="lang-swift"> <span class="hljs-built_in">min</span>(x, y, z)
+</code></pre>
+</li>
+<li><p><i><span style="color: #C0C0C0">When the function is an unconstrained generic:</span></i></p>
+<pre><code class="lang-swift"> <span class="hljs-built_in">print</span>(x)
+</code></pre>
+</li>
+<li><p><i><span style="color: #C0C0C0">When function syntax is part of the established domain notation:</span></i></p>
+<pre><code class="lang-swift"> sin(x)
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Follow case conventions.</strong> Names of types and protocols are UpperCamelCase. Everything else is lowerCamelCase.</span></i></p>
+<p>  <i><span style="color: #C0C0C0"><a href="https://en.wikipedia.org/wiki/Acronym" target="_blank">Acronyms and initialisms</a> that commonly appear as all upper case in American English should be uniformly up- or down-cased according to case conventions:</span></i></p>
+<pre><code class="lang-swift">  <span class="hljs-keyword">var</span> utf8Bytes: [<span class="hljs-type">UTF8</span>.<span class="hljs-type">CodeUnit</span>]
+  <span class="hljs-keyword">var</span> isRepresentableAsASCII = <span class="hljs-literal">true</span>
+  <span class="hljs-keyword">var</span> userSMTPServer: <span class="hljs-type">SecureSMTPServer</span>
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Other acronyms should be treated as ordinary words:</span></i></p>
+<pre><code class="lang-swift">  <span class="hljs-keyword">var</span> radarDetector: <span class="hljs-type">RadarScanner</span>
+  <span class="hljs-keyword">var</span> enjoysScubaDiving = <span class="hljs-literal">true</span>
+</code></pre>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Methods can share a base name</strong> when they share the same basic meaning or when they operate in distinct domains.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">For example, the following is encouraged, since the methods do essentially the same things:</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Shape</span> </span>{
+      <span class="hljs-comment">/// Returns `true` iff `other` is within the area of `self`.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: Point)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
+
+      <span class="hljs-comment">/// Returns `true` iff `other` is entirely within the area of `self`.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: Shape)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
+
+      <span class="hljs-comment">/// Returns `true` iff `other` is within the area of `self`.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: LineSegment)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">And since geometric types and collections are separate domains, this is also fine in the same program:</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Collection</span> <span class="hljs-title">where</span> <span class="hljs-title">Element</span> : <span class="hljs-title">Equatable</span> </span>{
+      <span class="hljs-comment">/// Returns `true` iff `self` contains an element equal to</span>
+      <span class="hljs-comment">/// `sought`.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> sought: Element)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">However, these index methods have different semantics, and should have been named differently:</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Database</span> </span>{
+      <span class="hljs-comment">/// Rebuilds the database&apos;s search index</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">index</span><span class="hljs-params">()</span></span> { ... }
+
+      <span class="hljs-comment">/// Returns the `n`th row in the given table.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">index</span><span class="hljs-params">(<span class="hljs-number">_</span> n: Int, inTable: TableID)</span></span> -&gt; <span class="hljs-type">TableRow</span> { ... }
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Lastly, avoid &#x201C;overloading on return type&#x201D; because it causes ambiguities in the presence of type inference.</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Box</span> </span>{
+      <span class="hljs-comment">/// Returns the `Int` stored in `self`, if any, and</span>
+      <span class="hljs-comment">/// `nil` otherwise.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">value</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span>? { ... }
+
+      <span class="hljs-comment">/// Returns the `String` stored in `self`, if any, and</span>
+      <span class="hljs-comment">/// `nil` otherwise.</span>
+      <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">value</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">String</span>? { ... }
+  }
+</code></pre>
+</li>
+</ul>
+<p><br></p>
+<h2 id="parameters">Parameters</h2>
+<pre><code class="lang-swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">move</span><span class="hljs-params">(from start: Point, to end: Point)</span></span>
+</code></pre>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Choose parameter names to serve documentation.</strong> Even though parameter names do not appear at a function or method&#x2019;s point of use, they play an important explanatory role.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Choose these names to make documentation easy to read. For example, these names make documentation read naturally:</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-comment">/// Return an `Array` containing the elements of `self`</span>
+  <span class="hljs-comment">/// that satisfy `predicate`.</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">filter</span><span class="hljs-params">(<span class="hljs-number">_</span> predicate: <span class="hljs-params">(Element)</span></span></span> -&gt; <span class="hljs-type">Bool</span>) -&gt; [<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span>]
+
+  <span class="hljs-comment">/// Replace the given `subRange` of elements with `newElements`.</span>
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">replaceRange</span><span class="hljs-params">(<span class="hljs-number">_</span> subRange: Range, with newElements: [E])</span></span>
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">These, however, make the documentation awkward and ungrammatical:</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-comment">/// Return an `Array` containing the elements of `self`</span>
+  <span class="hljs-comment">/// that satisfy `includedInResult`.</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">filter</span><span class="hljs-params">(<span class="hljs-number">_</span> includedInResult: <span class="hljs-params">(Element)</span></span></span> -&gt; <span class="hljs-type">Bool</span>) -&gt; [<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span>]
+
+  <span class="hljs-comment">/// Replace the range of elements indicated by `r` with</span>
+  <span class="hljs-comment">/// the contents of `with`.</span>
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">replaceRange</span><span class="hljs-params">(<span class="hljs-number">_</span> r: Range, with: [E])</span></span>
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Take advantage of defaulted parameters</strong> when it simplifies common uses. Any parameter with a single commonly-used value is a candidate for a default.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Default arguments improve readability by hiding irrelevant information. For example:</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-keyword">let</span> order = lastName.compare(
+  royalFamilyName, options: [], range: <span class="hljs-literal">nil</span>, locale: <span class="hljs-literal">nil</span>)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">can become the much simpler:</span><i></i></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-keyword">let</span> order = lastName.compare(royalFamilyName)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+      <span class="hljs-comment">/// ...description...</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
+          <span class="hljs-number">_</span> other: String, options: CompareOptions = [],
+          range: Range? = <span class="hljs-literal">nil</span>, locale: Locale? = <span class="hljs-literal">nil</span>
+      )</span></span> -&gt; <span class="hljs-type">Ordering</span>
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">The above may not be simple, but it is much simpler than:</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+      <span class="hljs-comment">/// ...description 1...</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-number">_</span> other: String)</span></span> -&gt; <span class="hljs-type">Ordering</span>
+      <span class="hljs-comment">/// ...description 2...</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-number">_</span> other: String, options: CompareOptions)</span></span> -&gt; <span class="hljs-type">Ordering</span>
+      <span class="hljs-comment">/// ...description 3...</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
+          <span class="hljs-number">_</span> other: String, options: CompareOptions, range: Range)</span></span> -&gt; <span class="hljs-type">Ordering</span>
+      <span class="hljs-comment">/// ...description 4...</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
+          <span class="hljs-number">_</span> other: String, options: StringCompareOptions,
+          range: Range, locale: Locale)</span></span> -&gt; <span class="hljs-type">Ordering</span>
+  }
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships&#x2014;for example, foo(bar: nil) and foo() aren&#x2019;t always synonyms&#x2014;make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i></p>
+</li>
+</ul>
+<ul>
+<li><i><span style="color: #C0C0C0"><strong>Prefer to locate parameters with defaults toward the end</strong> of the parameter list. Parameters without defaults are usually more essential to the semantics of a method, and provide a stable initial pattern of use where methods are invoked.</span></i></li>
+</ul>
+<p><br></p>
+<h2 id="argument-labels">Argument Labels</h2>
+<pre><code class="lang-swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">move</span><span class="hljs-params">(from start: Point, to end: Point)</span></span>
+x.move(from: x, to: y)
+</code></pre>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Omit all labels when arguments can&#x2019;t be usefully distinguished,</strong> e.g. min(number1, number2), zip(sequence1, sequence2).</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>In initializers that perform value preserving type conversions, omit the first argument label,</strong> e.g. Int64(someUInt32)</span></i></p>
+<p>  <i><span style="color: #C0C0C0">The first argument should always be the source of the conversion.</span></i></p>
+<pre><code class="lang-swift">  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+  <span class="hljs-comment">// Convert `x` into its textual representation in the given radix</span>
+  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> x: <span class="hljs-type">BigInt</span>, radix: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>)   &#x2190; <span class="hljs-type">Note</span> the initial underscore
+  }
+
+  text = <span class="hljs-string">&quot;The value is: &quot;</span>
+  text += <span class="hljs-type">String</span>(veryLargeNumber)
+  text += <span class="hljs-string">&quot; and in hexadecimal, it&apos;s&quot;</span>
+  text += <span class="hljs-type">String</span>(veryLargeNumber, radix: <span class="hljs-number">16</span>)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">In &#x201C;narrowing&#x201D; type conversions, though, a label that describes the narrowing is recommended.</span></i></p>
+<pre><code class="lang-swift">  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">UInt32</span> </span>{
+  <span class="hljs-comment">/// Creates an instance having the specified `value`.</span>
+  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> value: <span class="hljs-type">Int16</span>)            &#x2190; <span class="hljs-type">Widening</span>, so no label
+  <span class="hljs-comment">/// Creates an instance having the lowest 32 bits of `source`.</span>
+  <span class="hljs-keyword">init</span>(truncating source: <span class="hljs-type">UInt64</span>)
+  <span class="hljs-comment">/// Creates an instance having the nearest representable</span>
+  <span class="hljs-comment">/// approximation of `valueToApproximate`.</span>
+  <span class="hljs-keyword">init</span>(saturating valueToApproximate: <span class="hljs-type">UInt64</span>)
+  }
+</code></pre>
+<blockquote>
+<p><i><span style="color: #C0C0C0">A value preserving type conversion is a <a href="https://en.wikipedia.org/wiki/Monomorphism" target="_blank">monomorphism</a>, i.e. every difference in the value of the source results in a difference in the value of the result. For example, conversion from Int8 to Int64 is value preserving because every distinct Int8 value is converted to a distinct Int64 value. Conversion in the other direction, however, cannot be value preserving: Int64 has more possible values than can be represented in an Int8.</span></i></p>
+<p><i><span style="color: #C0C0C0">Note: the ability to retrieve the original value has no bearing on whether a conversion is value preserving.</span></i></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><i><span style="color: #C0C0C0"><strong>When the first argument forms part of a <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">prepositional phrase</a>, give it an argument label.</strong> The argument label should normally begin at the <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">preposition</a>, e.g. x.removeBoxes(havingLength: 12).</span></i></li>
+</ul>
+<pre><code>&lt;i&gt;&lt;span style=&quot;color: #C0C0C0&quot;&gt;An exception arises when the first two arguments represent parts of a single abstraction.&lt;/span&gt;&lt;/i&gt;
+
+```swift
+&#x274C;
+a.move(toX: b, y: c)
+a.fade(fromRed: b, green: c, blue: d)
+```
+
+&lt;i&gt;&lt;span style=&quot;color: #C0C0C0&quot;&gt;In such cases, begin the argument label after the preposition, to keep the abstraction clear.&lt;/span&gt;&lt;/i&gt;
+
+```swift
+&#x2705;
+a.moveTo(x: b, y: c)
+a.fadeFrom(red: b, green: c, blue: d)
+```
+</code></pre><ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Otherwise, if the first argument forms part of a grammatical phrase, omit its label,</strong> appending any preceding words to the base name, e.g. x.addSubview(y)</span></i></p>
+<p>  <i><span style="color: #C0C0C0">This guideline implies that if the first argument doesn&#x2019;t form part of a grammatical phrase, it should have a label.</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  view.dismiss(animated: <span class="hljs-literal">false</span>)
+  <span class="hljs-keyword">let</span> text = words.<span class="hljs-built_in">split</span>(maxSplits: <span class="hljs-number">12</span>)
+  <span class="hljs-keyword">let</span> studentsByName = students.sorted(isOrderedBefore: <span class="hljs-type">Student</span>.namePrecedes)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Note that it&#x2019;s important that the phrase convey the correct meaning. The following would be grammatical but would express the wrong thing.</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  view.dismiss(<span class="hljs-literal">false</span>)   <span class="hljs-type">Don&apos;t</span> dismiss? <span class="hljs-type">Dismiss</span> a <span class="hljs-type">Bool</span>?
+  words.<span class="hljs-built_in">split</span>(<span class="hljs-number">12</span>)       <span class="hljs-type">Split</span> the number <span class="hljs-number">12</span>?
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">Note also that arguments with default values can be omitted, and in that case do not form part of a grammatical phrase, so they should always have labels.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Label all other arguments.</strong></span></i></p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Naming.html" class="navigation navigation-prev " aria-label="Previous page: Naming">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Special_Instructions.html" class="navigation navigation-next " aria-label="Next page: Special Instructions">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Conventions","level":"2.3","depth":1,"next":{"title":"Special Instructions","level":"2.4","depth":1,"path":"APIDesignGuidelines/Special_Instructions.md","ref":"APIDesignGuidelines/Special_Instructions.md","articles":[]},"previous":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Conventions.md","mtime":"2022-03-09T05:13:38.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T06:16:23.800Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

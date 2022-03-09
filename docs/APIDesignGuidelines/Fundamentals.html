@@ -1,0 +1,448 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Fundamentals · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Naming.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Design Guidelines</li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="Fundamentals.html">
+            
+                <a href="Fundamentals.html">
+            
+                    
+                    Fundamentals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Naming.html">
+            
+                <a href="Naming.html">
+            
+                    
+                    Naming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Conventions.html">
+            
+                <a href="Conventions.html">
+            
+                    
+                    Conventions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Special_Instructions.html">
+            
+                <a href="Special_Instructions.html">
+            
+                    
+                    Special Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="Revision_History.html">
+            
+                <a href="Revision_History.html">
+            
+                    
+                    Revision History
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Fundamentals</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="fundamentals-&#xD575;&#xC2EC;-&#xAC1C;&#xB150;">Fundamentals (&#xD575;&#xC2EC; &#xAC1C;&#xB150;)</h1>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Clarity at the point of use</strong> is your most important goal. Entities such as methods and properties are declared only once but used repeatedly. Design APIs to make those uses clear and concise. When evaluating a design, reading a declaration is seldom sufficient; always examine a use case to make sure it looks clear in context.</span></i></p>
+</li>
+<li><p>API &#xC124;&#xACC4;&#xC758; &#xAC00;&#xC7A5; &#xC911;&#xC694;&#xD55C; &#xBAA9;&#xC801;&#xC740; <strong>&#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC2DC;&#xC810;&#xC5D0;&#xC11C;&#xC758; &#xBA85;&#xB8CC;&#xD568;</strong>&#xC785;&#xB2C8;&#xB2E4;. &#xBA54;&#xC11C;&#xB4DC;&#xB098; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC640; &#xAC19;&#xC740; &#xAC1C;&#xCCB4;&#xB294; &#xD55C; &#xBC88; &#xC120;&#xC5B8;&#xD574;&#xB450;&#xBA74; &#xBC18;&#xBCF5;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. API&#xB294; &#xC774;&#xB7EC;&#xD55C; &#xAC1C;&#xCCB4;&#xB4E4;&#xC744; &#xBA85;&#xD655;&#xD558;&#xACE0; &#xAC04;&#xACB0;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC124;&#xACC4;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. API &#xC124;&#xACC4;&#xB97C; &#xC81C;&#xB300;&#xB85C; &#xD558;&#xC600;&#xB294;&#xC9C0; &#xD3C9;&#xAC00;&#xD560; &#xB54C;&#xB294; &#xCF54;&#xB4DC;&#xC758; &#xC120;&#xC5B8;&#xBD80;&#xB97C; &#xC77D;&#xB294; &#xAC83;&#xB9CC;&#xC73C;&#xB85C;&#xB294; &#xCDA9;&#xBD84;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD56D;&#xC0C1; &#xBB38;&#xB9E5;&#xC5D0; &#xC54C;&#xB9DE;&#xB3C4;&#xB85D; &#xBA85;&#xD655;&#xD558;&#xAC8C; &#xC124;&#xACC4;&#xD558;&#xC600;&#xB294;&#xC9C0; &#xC2E4;&#xC9C8;&#xC801;&#xC778; &#xC0AC;&#xC6A9; &#xC608;&#xC2DC;&#xB97C; &#xD1B5;&#xD574; &#xD655;&#xC778;&#xD574;&#xBCF4;&#xC544;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+</ul>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Clarity is more important than brevity.</strong> Although Swift code can be compact, it is a non-goal to enable the smallest possible code with the fewest characters. Brevity in Swift code, where it occurs, is a side-effect of the strong type system and features that naturally reduce boilerplate.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Write a documentation comment for every declaration.</strong> Insights gained by writing documentation can have a profound impact on your design, so don&#x2019;t put it off.</span></i>   </p>
+<blockquote>
+<p><i><span style="color: #C0C0C0">If you are having trouble describing your API&#x2019;s functionality in simple terms, you may have designed the wrong API.</span></i></p>
+</blockquote>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Use Swift&#x2019;s dialect of Markdown.</strong></span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Begin with a summary</strong> that describes the entity being declared. Often, an API can be completely understood from its declaration and its summary.</span></i></p>
+<pre><code class="lang-swift"><span class="hljs-comment">/// Returns a &quot;view&quot; of `self` containing the same elements in</span>
+<span class="hljs-comment">/// reverse order.</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">reversed</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">ReverseCollection</span>
+</code></pre>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Focus on the summary</strong>; it&#x2019;s the most important part. Many excellent documentation comments consist of nothing more than a great summary.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Use a single sentence fragment</strong> if possible, ending with a period. Do not use a complete sentence.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Describe what a function or method does and what it <em>returns</em>,</strong> omitting null effects and Void returns:</span></i></p>
+</li>
+</ul>
+<pre><code class="lang-swift"><span class="hljs-comment">/// Inserts `newHead` at the beginning of `self`.</span>
+<span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">prepend</span><span class="hljs-params">(<span class="hljs-number">_</span> newHead: Int)</span></span>
+
+<span class="hljs-comment">/// Returns a `List` containing `head` followed by the elements</span>
+<span class="hljs-comment">/// of `self`.</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">prepending</span><span class="hljs-params">(<span class="hljs-number">_</span> head: Element)</span></span> -&gt; <span class="hljs-type">List</span>
+
+<span class="hljs-comment">/// Removes and returns the first element of `self` if non-empty;</span>
+<span class="hljs-comment">/// returns `nil` otherwise.</span>
+<span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">popFirst</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Element</span>?
+</code></pre>
+<p><i><span style="color: #C0C0C0">Note: in rare cases like popFirst above, the summary is formed of multiple sentence fragments separated by semicolons.</span></i></p>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Describe what a subscript accesses</strong>:</span></i></p>
+<pre><code class="lang-swift"><span class="hljs-comment">/// Accesses the `index`th element.</span>
+<span class="hljs-keyword">subscript</span>(index: <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Element</span> { <span class="hljs-keyword">get</span> <span class="hljs-keyword">set</span> }
+</code></pre>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Describe what an initializer creates</strong>:</span></i></p>
+<pre><code class="lang-swift"><span class="hljs-comment">/// Creates an instance containing `n` repetitions of `x`.</span>
+<span class="hljs-keyword">init</span>(<span class="hljs-built_in">count</span> n: <span class="hljs-type">Int</span>, repeatedElement x: <span class="hljs-type">Element</span>)
+</code></pre>
+</li>
+<li><p><i><span style="color: #C0C0C0">For all other declarations, <strong>describe what the declared entity <em>is</em>.</strong></span></i></p>
+<pre><code class="lang-swift"><span class="hljs-comment">/// A collection that supports equally efficient insertion/removal</span>
+<span class="hljs-comment">/// at any position.</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">List</span> </span>{
+
+<span class="hljs-comment">/// The element at the beginning of `self`, or `nil` if self is</span>
+<span class="hljs-comment">/// empty.</span>
+<span class="hljs-keyword">var</span> first: <span class="hljs-type">Element</span>?
+...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Optionally, continue</strong> with one or more paragraphs and bullet items. Paragraphs are separated by blank lines and use complete sentences.</span></i></p>
+<pre><code class="lang-swift"><span class="hljs-comment">/// Writes the textual representation of each    &#x2190; Summary</span>
+<span class="hljs-comment">/// element of `items` to the standard output.</span>
+<span class="hljs-comment">///                                              &#x2190; Blank line</span>
+<span class="hljs-comment">/// The textual representation for each item `x` &#x2190; Additional discussion</span>
+<span class="hljs-comment">/// is generated by the expression `String(x)`.</span>
+<span class="hljs-comment">///</span>
+<span class="hljs-comment">/// - Parameter separator: text to be printed    &#x23AB;</span>
+<span class="hljs-comment">///   between items.                             &#x239F;</span>
+<span class="hljs-comment">/// - Parameter terminator: text to be printed   &#x23AC; Parameters section</span>
+<span class="hljs-comment">///   at the end.                                &#x239F;</span>
+<span class="hljs-comment">///                                              &#x23AD;</span>
+<span class="hljs-comment">/// - Note: To print without a trailing          &#x23AB;</span>
+<span class="hljs-comment">///   newline, pass `terminator: &quot;&quot;`             &#x239F;</span>
+<span class="hljs-comment">///                                              &#x23AC; Symbol commands</span>
+<span class="hljs-comment">/// - SeeAlso: `CustomDebugStringConvertible`,   &#x239F;</span>
+<span class="hljs-comment">///   `CustomStringConvertible`, `debugPrint`.   &#x23AD;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">print</span><span class="hljs-params">(
+  <span class="hljs-number">_</span> items: Any..., separator: String = <span class="hljs-string">&quot; &quot;</span>, terminator: String = <span class="hljs-string">&quot;\n&quot;</span>)</span></span>
+</code></pre>
+<ul>
+<li><p><i><span style="color: #C0C0C0"><strong>Use recognized <a href="https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW1" target="_blank">symbol documentation markup elements</a></strong> to add information beyond the summary, whenever appropriate.</span></i></p>
+</li>
+<li><p><i><span style="color: #C0C0C0"><strong>Know and use recognized bullet items with <a href="https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW13" target="_blank">symbol command syntax</a>.</strong> Popular development tools such as Xcode give special treatment to bullet items that start with the following keywords:</span></i></p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Attention.html" target="_blank">Attention</a></th>
+<th><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Author.html" target="_blank">Author</a></th>
+<th><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Authors.html" target="_blank">Authors</a></th>
+<th><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Bug.html" target="_blank">Bug</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Complexity.html" target="_blank">Complexity</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Copyright.html" target="_blank">Copyright</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Date.html" target="_blank">Date</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Experiment.html" target="_blank">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Important.html" target="_blank">Important</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Invariant.html" target="_blank">Invariant</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Note.html" target="_blank">Note</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Parameter.html" target="_blank">Parameter</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Parameters.html" target="_blank">Parameters</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Postcondition.html" target="_blank">Postcondition</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Precondition.html" target="_blank">Precondition</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Remark.html" target="_blank">Remark</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Requires.html" target="_blank">Requires</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Returns.html" target="_blank">Returns</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/SeeAlso.html" target="_blank">SeeAlso</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Since.html" target="_blank">Since</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Throws.html" target="_blank">Throws</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Todo.html" target="_blank">Todo</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Version.html" target="_blank">Version</a></td>
+<td><a href="https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Warning.html" target="_blank">Warning</a></td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Naming.html" class="navigation navigation-next " aria-label="Next page: Naming">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Fundamentals","level":"2.1","depth":1,"next":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"INTRO.md","ref":"INTRO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Fundamentals.md","mtime":"2022-03-09T05:13:38.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T06:16:23.800Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
