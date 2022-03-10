@@ -1,5 +1,5 @@
 
-야곰 아카데미에서 제작한 [swift-doc-kor](https://yagom-academy.github.io/swift-doc-kor/) 저장소입니다.
+#### 야곰 아카데미에서 제작한 [swift-doc-kor](https://yagom-academy.github.io/swift-doc-kor/) 저장소입니다.
 
 <br>
 
@@ -11,10 +11,6 @@
 
 안녕하세요. `swift-doc-kor`에 함께 해주셔서 감사합니다.   
 `swift-doc-kor`는 누구나 참여할 수 있습니다. 멋진 공유의 장을 만들어보아요! 참여 방법은 아래 가이드를 차근차근 확인해주세요 🙂
-
-<br>
-
-<img alt="image" src="https://user-images.githubusercontent.com/73867548/156685343-a7dd49af-b52d-40fd-88bc-8c63a2cef135.png">
 
 <br>
 
