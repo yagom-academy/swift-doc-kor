@@ -38,7 +38,7 @@
 - 작업할 branch의 이름은  `{Issue Number}-{Nick Name}` 형식을 따릅니다.
     - ex) `#6-odongnamu`
 - 작업 완료 후 PR은 작업 내용에 따라 원본 저장소의 아래 브랜치로 요청합니다.
-    - API Design Guidelines: `develop/api-guide`
+    - API Design Guidelines: `develop-apiGuide`
 
 ### ✍🏻 Commit
 - commit에는 이슈 번호를 반드시 추가합니다.
