@@ -96,7 +96,6 @@
     }
     ```
 
-
 <br>
 
 ## Parameters
@@ -235,7 +234,6 @@ x.move(from: x, to: y)
 
 - <i><span style="color: #C0C0C0">**When the first argument forms part of a [prepositional phrase](https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases), give it an argument label.** The argument label should normally begin at the [preposition](https://en.wikipedia.org/wiki/Preposition_and_postposition), e.g. x.removeBoxes(havingLength: 12).</span></i>
 
-
     <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i>
 
     ```swift
@@ -251,8 +249,6 @@ x.move(from: x, to: y)
     a.moveTo(x: b, y: c)
     a.fadeFrom(red: b, green: c, blue: d)
     ```
-
-
 
 - <i><span style="color: #C0C0C0">**Otherwise, if the first argument forms part of a grammatical phrase, omit its label,** appending any preceding words to the base name, e.g. x.addSubview(y)</span></i>
 

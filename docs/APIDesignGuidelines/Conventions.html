@@ -412,24 +412,18 @@ x.move(from: x, to: y)
 </li>
 </ul>
 <ul>
-<li><i><span style="color: #C0C0C0"><strong>When the first argument forms part of a <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">prepositional phrase</a>, give it an argument label.</strong> The argument label should normally begin at the <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">preposition</a>, e.g. x.removeBoxes(havingLength: 12).</span></i></li>
-</ul>
-<pre><code>&lt;i&gt;&lt;span style=&quot;color: #C0C0C0&quot;&gt;An exception arises when the first two arguments represent parts of a single abstraction.&lt;/span&gt;&lt;/i&gt;
-
-```swift
-&#x274C;
-a.move(toX: b, y: c)
-a.fade(fromRed: b, green: c, blue: d)
-```
-
-&lt;i&gt;&lt;span style=&quot;color: #C0C0C0&quot;&gt;In such cases, begin the argument label after the preposition, to keep the abstraction clear.&lt;/span&gt;&lt;/i&gt;
-
-```swift
-&#x2705;
-a.moveTo(x: b, y: c)
-a.fadeFrom(red: b, green: c, blue: d)
-```
-</code></pre><ul>
+<li><p><i><span style="color: #C0C0C0"><strong>When the first argument forms part of a <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">prepositional phrase</a>, give it an argument label.</strong> The argument label should normally begin at the <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">preposition</a>, e.g. x.removeBoxes(havingLength: 12).</span></i></p>
+<p>  <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i></p>
+<pre><code class="lang-swift">  &#x274C;
+  a.move(toX: b, y: <span class="hljs-built_in">c</span>)
+  a.fade(fromRed: b, green: <span class="hljs-built_in">c</span>, blue: d)
+</code></pre>
+<p>  <i><span style="color: #C0C0C0">In such cases, begin the argument label after the preposition, to keep the abstraction clear.</span></i></p>
+<pre><code class="lang-swift">  &#x2705;
+  a.moveTo(x: b, y: <span class="hljs-built_in">c</span>)
+  a.fadeFrom(red: b, green: <span class="hljs-built_in">c</span>, blue: d)
+</code></pre>
+</li>
 <li><p><i><span style="color: #C0C0C0"><strong>Otherwise, if the first argument forms part of a grammatical phrase, omit its label,</strong> appending any preceding words to the base name, e.g. x.addSubview(y)</span></i></p>
 <p>  <i><span style="color: #C0C0C0">This guideline implies that if the first argument doesn&#x2019;t form part of a grammatical phrase, it should have a label.</span></i></p>
 <pre><code class="lang-swift">  &#x2705;
@@ -490,7 +484,7 @@ a.fadeFrom(red: b, green: c, blue: d)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Conventions","level":"2.3","depth":1,"next":{"title":"Special Instructions","level":"2.4","depth":1,"path":"APIDesignGuidelines/Special_Instructions.md","ref":"APIDesignGuidelines/Special_Instructions.md","articles":[]},"previous":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Conventions.md","mtime":"2022-03-09T05:13:38.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T06:16:23.800Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Conventions","level":"2.3","depth":1,"next":{"title":"Special Instructions","level":"2.4","depth":1,"path":"APIDesignGuidelines/Special_Instructions.md","ref":"APIDesignGuidelines/Special_Instructions.md","articles":[]},"previous":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Conventions.md","mtime":"2022-03-10T02:29:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-10T05:00:58.244Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

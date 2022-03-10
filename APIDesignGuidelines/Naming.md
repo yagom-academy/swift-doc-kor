@@ -164,45 +164,38 @@
 
     - <i><span style="color: #C0C0C0">**Name Mutating/nonmutating method pairs** consistently. A mutating method will often have a nonmutating variant with similar semantics, but that returns a new value rather than updating an instance in-place.</span></i>
 
-        - <i><span style="color: #C0C0C0">When the operation is **naturally described by a verb,** use the verb’s imperative for the mutating method and apply the “ed” or “ing” suffix to name its nonmutating counterpart.</span></i>
-
-|**Mutating**|    **Nonmutating**|   
-|---|---|
-|x.sort()|    z = x.sorted()|   
-|x.append(y)|    z = x.appending(y)|
+        - <i><span style="color: #C0C0C0">When the operation is **naturally described by a verb,** use the verb’s imperative for the mutating method and apply the “ed” or “ing” suffix to name its nonmutating counterpart.</span></i>   
             
+            <img width="800" alt="mutatingNonmutationTable" src="https://user-images.githubusercontent.com/65153742/157592746-1a6f46a9-7fe8-44c3-b27f-858429c3a43a.png">
             - <i><span style="color: #C0C0C0">Prefer to name the nonmutating variant using the verb’s past participle (usually appending “ed”):</span></i>
 
-            ```swift
-            /// Reverses `self` in-place.
-            mutating func reverse()
+                ```swift
+                /// Reverses `self` in-place.
+                mutating func reverse()
 
-            /// Returns a reversed copy of `self`.
-            func reversed() -> Self
-            ...
-            x.reverse()
-            let y = x.reversed()
-            ```
+                /// Returns a reversed copy of `self`.
+                func reversed() -> Self
+                ...
+                x.reverse()
+                let y = x.reversed()
+                ```
 
             - <i><span style="color: #C0C0C0">When adding “ed” is not grammatical because the verb has a direct object, name the nonmutating variant using the verb’s present participle, by appending “ing.”</span></i>
 
-            ```swift
-            /// Strips all the newlines from `self`
-            mutating func stripNewlines()
+                ```swift
+                /// Strips all the newlines from `self`
+                mutating func stripNewlines()
 
-            /// Returns a copy of `self` with all the newlines stripped.
-            func strippingNewlines() -> String
-            ...
-            s.stripNewlines()
-            let oneLine = t.strippingNewlines()
+                /// Returns a copy of `self` with all the newlines stripped.
+                func strippingNewlines() -> String
+                ...
+                s.stripNewlines()
+                let oneLine = t.strippingNewlines()
             ```
 
         - <i><span style="color: #C0C0C0">When the operation is **naturally described by a noun,** use the noun for the nonmutating method and apply the “form” prefix to name its mutating counterpart.</span></i>
                 
-|**Nonmutating**|    **Mutating**|
-|---|---|
-|x = y.union(z)|    y.formUnion(z)|
-|j = c.successor(i)|    c.formSuccessor(&i)|
+            <img width="800" alt="mutatingNonmutationTable2" src="https://user-images.githubusercontent.com/65153742/157592752-2392b4f3-88a0-4af2-be63-b5c54959f7a7.png">
 
 - <i><span style="color: #C0C0C0">**Uses of Boolean methods and properties should read as assertions about the receiver** when the use is nonmutating, e.g. x.isEmpty, line1.intersects(line2).</span></i>
 
