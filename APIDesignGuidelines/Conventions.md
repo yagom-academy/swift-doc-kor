@@ -98,93 +98,112 @@
 
 <br>
 
-## Parameters
+## Parameters (매개변수)
 
 ```swift
 func move(from start: Point, to end: Point)
 ```
 
 - <i><span style="color: #C0C0C0">**Choose parameter names to serve documentation.** Even though parameter names do not appear at a function or method’s point of use, they play an important explanatory role.</span></i>
+- <span>**문서를 제공할 매개변수 이름을 선택합니다.** 매개변수 이름이 함수 또는 메서드의 사용 시점에 나타나지 않더라도 설명에 중요한 역할을 합니다.</span>
 
     <i><span style="color: #C0C0C0">Choose these names to make documentation easy to read. For example, these names make documentation read naturally:</span></i>
-
+    <span>문서를 쉽게 읽을 수 있도록 매개변수 이름을 선택합니다. 예를 들어, 매개변수 이름은 자연스럽게 문서를 읽을 수 있도록 만듭니다:</span>
+    
     ```swift
     ✅
     /// Return an `Array` containing the elements of `self`
     /// that satisfy `predicate`.
+    /// 'predicate'를 만족시키는 'self'의 요소를 포함하는 'Array'를 반환
     func filter(_ predicate: (Element) -> Bool) -> [Generator.Element]
-
+    
     /// Replace the given `subRange` of elements with `newElements`.
+    /// 주어진 요소의 'subRange'를 'newElements'로 변환
     mutating func replaceRange(_ subRange: Range, with newElements: [E])
     ```
-
+    
     <i><span style="color: #C0C0C0">These, however, make the documentation awkward and ungrammatical:</span></i>
-
+    <span>그러나 매개변수는 문서를 어색하고 문법에 맞지 않게 만듭니다:</span>
+    
     ```swift
     ❌
     /// Return an `Array` containing the elements of `self`
     /// that satisfy `includedInResult`.
+    /// 'includedInResult'를 만족시키는 'self'의 요소를 포함하는 'Array'를 반환
     func filter(_ includedInResult: (Element) -> Bool) -> [Generator.Element]
-
+    
     /// Replace the range of elements indicated by `r` with
     /// the contents of `with`.
+    /// 'r'로 표시된 요소의 범위를 'with'의 내용으로 변환
     mutating func replaceRange(_ r: Range, with: [E])
     ```
 
 
 - <i><span style="color: #C0C0C0">**Take advantage of defaulted parameters** when it simplifies common uses. Any parameter with a single commonly-used value is a candidate for a default.</span></i>
-
-    <i><span style="color: #C0C0C0">Default arguments improve readability by hiding irrelevant information. For example:</span></i>
-
+- <span>**기본 매개변수는** 일반적인 사용을 단순화할 때 **이점을 가집니다.** 일반적으로 사용되는 단일 값을 가진 모든 매개변수는 기본값 후보입니다.</span>
+  
+  <i><span style="color: #C0C0C0">Default arguments improve readability by hiding irrelevant information. For example:</span></i>
+  <span>기본 인자는 관련 없는 정보를 숨김으로 가독성을 향상합니다. 예를 들어:</span>
+  
+  
     ```swift
     ❌
     let order = lastName.compare(
     royalFamilyName, options: [], range: nil, locale: nil)
     ```
-
-    <i><span style="color: #C0C0C0">can become the much simpler:</span><i>
-
+  
+  <i><span style="color: #C0C0C0">can become the much simpler:</span></i>
+  <span>훨씬 더 단순해질 수 있습니다:</span>
+  
     ```swift
     ✅
     let order = lastName.compare(royalFamilyName)
     ```
-
-    <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i>
-
+  
+  <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i>
+  <span>기본 인자는 일반적으로 메소드 집합을 사용하는 것보다 선호되는데, API를 이해하려는 모든 사람에게 인식의 부담을 낮춰줍니다.</span>
+  
     ```swift
     ✅
     extension String {
         /// ...description...
+        /// ...설명...
         public func compare(
             _ other: String, options: CompareOptions = [],
             range: Range? = nil, locale: Locale? = nil
         ) -> Ordering
     }
     ```
-
-    <i><span style="color: #C0C0C0">The above may not be simple, but it is much simpler than:</span></i>
-
+  
+  <i><span style="color: #C0C0C0">The above may not be simple, but it is much simpler than:</span></i>
+  <span>위의 내용은 간단하지 않을 수 있지만, 다음보다는 더 간단합니다:</span>
+  
     ```swift
     ❌
     extension String {
         /// ...description 1...
+        /// ...설명 1...
         public func compare(_ other: String) -> Ordering
         /// ...description 2...
+        /// ...설명 2...
         public func compare(_ other: String, options: CompareOptions) -> Ordering
         /// ...description 3...
+        /// ...설명 3...
         public func compare(
             _ other: String, options: CompareOptions, range: Range) -> Ordering
         /// ...description 4...
+        /// ...설명 4...
         public func compare(
             _ other: String, options: StringCompareOptions,
             range: Range, locale: Locale) -> Ordering
     }
     ```
-
-    <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships—for example, foo(bar: nil) and foo() aren’t always synonyms—make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i>
-
-
+  
+  <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships—for example, foo(bar: nil) and foo() aren’t always synonyms—make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i>
+  <span>메소드 집합의 모든 구성은 별도의 문서화가 필요하며 사용자가 이해해야 합니다. 그중 하나를 결정하기 위해서는 사용자가 메소드 집합 전부를 이해할 필요가 있습니다. 그리고 때때로 놀라운 관계-예시로, foo(bar: nil)과 foo()는 항상 동의어가 아닙니다-는 거의 동일한 문서에서 작은 차이를 찾아내는 지루한 과정을 만듭니다. 기본값과 함께 단일 메소드를 사용하면 훨씬 더 우수한 프로그래머 경험을 제공합니다.</span>
+  
 - <i><span style="color: #C0C0C0">**Prefer to locate parameters with defaults toward the end** of the parameter list. Parameters without defaults are usually more essential to the semantics of a method, and provide a stable initial pattern of use where methods are invoked.</span></i>
+- <span>매개변수 목록의 **마지막 방향으로 기본값이 있는 매개변수를 위치시키는 것을 선호합니다.** 기본값이 없는 매개변수는 일반적으로 메소드의 의미가 더 필수적이고, 메소드가 호출되는 곳에서 안정적인 초기 패턴을 제공합니다.</span>
 
 <br>
 
