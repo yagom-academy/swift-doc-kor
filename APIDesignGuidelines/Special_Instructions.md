@@ -7,7 +7,7 @@
     
 - API에 튜플과 클로저가 드러나는 곳에서, **튜플의 멤버들에 라벨을 붙여주고 클로저의 매개변수들에 이름을 지어줍시다.**
 
-    이러한 이름들은 설명력을 갖습니다. 이는 문서화 주석들에 참조될 수 있고, 튜플의 구성요소들에 대해서 유의미한 접근을 제공합니다.
+    이러한 이름들은 설명력을 갖습니다. 이는 문서 주석들에 참조될 수 있고, 튜플의 구성요소들에 대해서 유의미한 접근을 제공합니다.
     
     ```swift
     /// Ensure that we hold uniquely-referenced storage for at least
@@ -36,7 +36,7 @@
 
     <i><span style="color: #C0C0C0">Names used for closure parameters should be chosen like `parameter names` for top-level functions. Labels for closure arguments that appear at the call site are not supported.</span></i>
     
-    클로저의 매개변수에서 사용된 것과 같은 이름들은, 최상위 함수들을 위해서 `매개변수 이름들`처럼 골라져야 합니다. 호출부에서 표현되는 클로저의 인자들에 대한 라벨들은 대상이 아닙니다.    
+    클로저의 매개변수에서 사용된 것과 같은 이름들은, 최상위 함수들을 위해서 `매개변수 이름들`처럼 사용해야 합니다. 호출부에서 표현되는 클로저의 인자들에 대한 라벨들은 대상이 아닙니다.    
 
 - <i><span style="color: #C0C0C0">**Take extra care with unconstrained polymorphism** (e.g. Any, AnyObject, and unconstrained generic parameters) to avoid ambiguities in overload sets.</span></i>
 
@@ -63,7 +63,7 @@
 
     <i><span style="color: #C0C0C0">These methods form a semantic family, and the argument types appear at first to be sharply distinct. However, when Element is Any, a single element can have the same type as a sequence of elements.</span></i>
     
-    위 메소드들은 하나의 의미론적 집단을 형성합니다. 그리고 드러나는 첫번째 인자의 타입들은 뚜렷히 구별됩니다. 하지만 Element가 Any라면, 단일요소가 요소들의 시퀀스와 같은 타입을 가질 수 있습니다.
+    위 메서드들은 하나의 의미론적 집단을 형성합니다. 이어서 나타나는 첫번째 인자의 타입들은 분명하게 구별됩니다. 하지만 Element가 Any라면, 단일요소가 요소들의 시퀀스와 같은 타입을 가질 수 있습니다.
     
     ```swift
     ❌
@@ -91,6 +91,6 @@
     ```
 
     <i><span style="color: #C0C0C0">Notice how the new name better matches the documentation comment. In this case, the act of writing the documentation comment actually brought the issue to the API author’s attention.</span><i>
-    새로운 이름이 문서화 주석과 얼마나 더 잘 어울리는지 주목해주세요. 이 경우, 문서화 주석을 적는 행위는 실제로 API 작성자의 이목을 끌었습니다.
+    새로운 이름과 문서 주석이 얼마나 더 잘 어울리는지 주목해주세요. 이처럼, 문서 주석을 적는 행위는 실제로 API 작성자의 이목을 끌게 됩니다.
     
     
