@@ -124,7 +124,7 @@
     - 요약문 외에 추가적인 정보를 제공할 때는 적절하게 **[심볼 문서 마크업](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW1) 요소들을 사용하세요.**
 
     - <i><span style="color: #C0C0C0">**Know and use recognized bullet items with [symbol command syntax](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW13).** Popular development tools such as Xcode give special treatment to bullet items that start with the following keywords:</span></i>
-    - **글머리 기호와 [심볼 명령 구문](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW13)을 알고 사용합니다** Xcode 처럼 인기있는 개발도구는 아래의 키워드로 시작하는 글머리 기호를 특별하게 취급합니다.
+    - **글머리 기호와 [심볼 명령 구문](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html#//apple_ref/doc/uid/TP40016497-CH51-SW13)을 알고 사용합니다.** Xcode 처럼 인기있는 개발도구는 아래의 키워드로 시작하는 글머리 기호를 특별하게 취급합니다.
 
 |  [Attention](https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Attention.html) |  [Author](https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Author.html) |  [Authors](https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Authors.html) |  [Bug](https://developer.apple.com/library/prerelease/mac/documentation/Xcode/Reference/xcode_markup_formatting_ref/Bug.html) |
 | -- | -- | -- | -- |
