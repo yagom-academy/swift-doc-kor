@@ -161,7 +161,7 @@ func move(from start: Point, to end: Point)
     ```
   
   <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i>
-  <span>기본 인자는 일반적으로 메소드 집합을 사용하는 것보다 선호되는데, API를 이해하려는 모든 사람에게 인식의 부담을 낮춰줍니다.</span>
+  <span>기본 인자는 일반적으로 메서드 집합을 사용하는 것보다 선호되는데, API를 이해하려는 모든 사람에게 인식의 부담을 낮춰줍니다.</span>
   
     ```swift
     ✅
@@ -200,10 +200,10 @@ func move(from start: Point, to end: Point)
     ```
   
   <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships—for example, foo(bar: nil) and foo() aren’t always synonyms—make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i>
-  <span>메소드 집합의 모든 구성은 별도의 문서화가 필요하며 사용자가 이해해야 합니다. 그중 하나를 결정하기 위해서는 사용자가 메소드 집합 전부를 이해할 필요가 있습니다. 그리고 때때로 놀라운 관계-예시로, foo(bar: nil)과 foo()는 항상 동의어가 아닙니다-는 거의 동일한 문서에서 작은 차이를 찾아내는 지루한 과정을 만듭니다. 기본값과 함께 단일 메소드를 사용하면 훨씬 더 우수한 프로그래머 경험을 제공합니다.</span>
+  <span>메서드 집합의 모든 구성은 별도의 문서화가 필요하며 사용자가 이해해야 합니다. 그중 하나를 결정하기 위해서는 사용자가 메서드 집합 전부를 이해할 필요가 있습니다. 그리고 때때로 놀라운 관계-예시로, foo(bar: nil)과 foo()는 항상 동의어가 아닙니다-는 거의 동일한 문서에서 작은 차이를 찾아내는 지루한 과정을 만듭니다. 기본값과 함께 단일 메서드를 사용하면 훨씬 더 우수한 프로그래머 경험을 제공합니다.</span>
   
 - <i><span style="color: #C0C0C0">**Prefer to locate parameters with defaults toward the end** of the parameter list. Parameters without defaults are usually more essential to the semantics of a method, and provide a stable initial pattern of use where methods are invoked.</span></i>
-- <span>매개변수 목록의 **마지막 방향으로 기본값이 있는 매개변수를 위치시키는 것을 선호합니다.** 기본값이 없는 매개변수는 일반적으로 메소드의 의미가 더 필수적이고, 메소드가 호출되는 곳에서 안정적인 초기 패턴을 제공합니다.</span>
+- <span>매개변수 목록의 **마지막 방향으로 기본값이 있는 매개변수를 위치시키는 것을 선호합니다.** 기본값이 없는 매개변수는 일반적으로 메서드의 의미가 더 필수적이고, 메서드가 호출되는 곳에서 안정적인 초기 패턴을 제공합니다.</span>
 
 <br>
 
