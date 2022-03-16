@@ -188,7 +188,7 @@ func move(from start: Point, to end: Point)
 
 <br>
 
-## Argument Labels
+## Argument Labels(전달인자 레이블)
 
 ```swift
 func move(from start: Point, to end: Point)
@@ -197,14 +197,20 @@ x.move(from: x, to: y)
 
 - <i><span style="color: #C0C0C0">**Omit all labels when arguments can’t be usefully distinguished,** e.g. min(number1, number2), zip(sequence1, sequence2).</span></i>
 
+- **전달인자 레이블이 전달인자들을 유용하게 구분하지 못하는 경우 모든 전달인자 레이블을 무시합니다.** 예시 : *min(number1, number2), zip(sequence1, sequence2)*.
+
 - <i><span style="color: #C0C0C0">**In initializers that perform value preserving type conversions, omit the first argument label,** e.g. Int64(someUInt32)</span></i>
 
-    <i><span style="color: #C0C0C0">The first argument should always be the source of the conversion.</span></i>
+- <i>**값은 보존하고 타입만 변경하는 이니셜라이저의 경우 첫 번째 전달인자 레이블을 무시합니다.** 예시 : *Int64(someUInt32)* </i>
 
+    <i><span style="color: #C0C0C0">The first argument should always be the source of the conversion.</span></i>
+    
+    <i>타입 변환의 대상은 반드시 첫 번째 전달인자여야 합니다.</i>
     ```swift
     extension String {
     // Convert `x` into its textual representation in the given radix
-    init(_ x: BigInt, radix: Int = 10)   ← Note the initial underscore
+    // `x`를 주어진 기수(기초가되는 수, radix)내에서 문자적인 표현으로 바꿉니다. 
+    init(_ x: BigInt, radix: Int = 10)   ← Note the initial underscore (초기의 언더스코어를 참고합니다.)
     }
 
     text = "The value is: "
@@ -214,28 +220,41 @@ x.move(from: x, to: y)
     ```
 
     <i><span style="color: #C0C0C0">In “narrowing” type conversions, though, a label that describes the narrowing is recommended.</span></i>
+    
+    <i>그러나 타입변환 대상의 범위가 한정된 경우, 전달인자 레이블을 통해 그 범위를 나타내는 것을 추천합니다. </i>
 
     ```swift
     extension UInt32 {
     /// Creates an instance having the specified `value`.
-    init(_ value: Int16)            ← Widening, so no label
+    /// 특정한 값을 가지는 인스턴스를 만듭니다. 
+    init(_ value: Int16)            ← Widening, so no label(범위가 넓기 때문에 레이블이 없습니다.)
     /// Creates an instance having the lowest 32 bits of `source`.
+    /// 가장 낮은 32비트를 자원으로 가지는 인스턴스를 만듭니다.
     init(truncating source: UInt64)
     /// Creates an instance having the nearest representable
     /// approximation of `valueToApproximate`.
+    /// `valueToApproximate`의 표현가능하고 
+    /// 가장 근접한 추정치를 가지는 인스턴스를 만듭니다. 
     init(saturating valueToApproximate: UInt64)
     }
     ```
 
     > <i><span style="color: #C0C0C0">A value preserving type conversion is a [monomorphism](https://en.wikipedia.org/wiki/Monomorphism), i.e. every difference in the value of the source results in a difference in the value of the result. For example, conversion from Int8 to Int64 is value preserving because every distinct Int8 value is converted to a distinct Int64 value. Conversion in the other direction, however, cannot be value preserving: Int64 has more possible values than can be represented in an Int8.</span></i>
     > 
+    > <i>값을 보존하면서 타입을 바꾸는것을 [단형성](https://en.wikipedia.org/wiki/Monomorphism)이라고 합니다. 즉 타입변환 대상의 값이 다르면 결과도 다릅니다. 예를 들어 Int8에서 Int64로 타입을 바꾸는 경우 값이 보존되지만 반대의 경우엔 값이 보존되지 않습니다. 왜냐하면 Int64는 Int8타입으로 바뀌면서 다양한 값으로 표현될 수 있기 때문입니다.</i>
+    > 
     > <i><span style="color: #C0C0C0">Note: the ability to retrieve the original value has no bearing on whether a conversion is value preserving.</span></i>
+    > 
+    > <i>참고 : 원래의 값을 검색할 수 있는지의 여부는 (타입)변환이 값을 보존하는지의 여부와 관계없습니다.</i>
 
 
 - <i><span style="color: #C0C0C0">**When the first argument forms part of a [prepositional phrase](https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases), give it an argument label.** The argument label should normally begin at the [preposition](https://en.wikipedia.org/wiki/Preposition_and_postposition), e.g. x.removeBoxes(havingLength: 12).</span></i>
 
-    <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i>
+- <i>**첫 번째 전달인자가 [전치사구](https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases)의 일부라면, 전달인자 레이블을 줍니다.** 이 때 이 전달인자 레이블은 반드시 [전치사](https://en.wikipedia.org/wiki/Preposition_and_postposition) 위치에서 시작합니다. 예 : x.removeBoxes(havingLength: 12)</i>
 
+    <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i>
+    
+    <i>예외가 발생하는 경우가 있는데 첫 번째 두 전달인자들이 단일 추상화의 일부로 표현될 때 입니다.</i>
     ```swift
     ❌
     a.move(toX: b, y: c)
@@ -243,6 +262,8 @@ x.move(from: x, to: y)
     ```
 
     <i><span style="color: #C0C0C0">In such cases, begin the argument label after the preposition, to keep the abstraction clear.</span></i>
+    
+    <i>이런 경우에는 추상화를 정확히 하기 위해 전달인자 레이블을 전치사 다음에 시작하도록 합니다.</i>
 
     ```swift
     ✅
@@ -252,8 +273,11 @@ x.move(from: x, to: y)
 
 - <i><span style="color: #C0C0C0">**Otherwise, if the first argument forms part of a grammatical phrase, omit its label,** appending any preceding words to the base name, e.g. x.addSubview(y)</span></i>
 
+- <i> **첫 번째 전달인자가 문법구문의 일부라면 전달인자 레이블을 무시하고** 기본이름에 선행단어를 추가합니다. 예 :x.addSubview(y) </i>
+    
     <i><span style="color: #C0C0C0">This guideline implies that if the first argument doesn’t form part of a grammatical phrase, it should have a label.</span></i>
-
+    
+    <i>이 가이드라인이 의미하는 것은 첫 번째 전달인자가 문법구문의 일부가 아니라면 반드시 레이블을 가져야한다는것 입니다. </i>
     ```swift
     ✅
     view.dismiss(animated: false)
@@ -262,14 +286,17 @@ x.move(from: x, to: y)
     ```
 
     <i><span style="color: #C0C0C0">Note that it’s important that the phrase convey the correct meaning. The following would be grammatical but would express the wrong thing.</span></i>
-
+    
+    <i>문구가 올바른 의미를 전달하고 있는지가 중요합니다. 아래의 내용은 문법적으로는 맞지만 잘못된 의미입니다.</i>
     ```swift
     ❌
-    view.dismiss(false)   Don't dismiss? Dismiss a Bool?
-    words.split(12)       Split the number 12?
+    view.dismiss(false)   Don't dismiss? Dismiss a Bool? (해제하지 말아라? Bool을 해제해라?)
+    words.split(12)       Split the number 12?(숫자 12를 나눠라?)
     ```
 
     <i><span style="color: #C0C0C0">Note also that arguments with default values can be omitted, and in that case do not form part of a grammatical phrase, so they should always have labels.</span></i>
-
+    
+    <i>또한 기본값을 가지는 전달인자는 무시될 수 있습니다. 이 경우에는 문법구문의 일부가 아니기 때문에 항상 레이블을 가져야 합니다.</i> 
 - <i><span style="color: #C0C0C0">**Label all other arguments.**</span></i>
 
+- <i>**레이블은 모두 다른 전달인자들입니다.**</i>
