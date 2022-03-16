@@ -100,11 +100,11 @@
     ❌
     extension Database {
         /// Rebuilds the database's search index
-        /// 데이터베이스의 검색 인덱스를 재구성합니다
+        /// 데이터베이스의 검색 인덱스 리빌드
         func index() { ... }
 
         /// Returns the `n`th row in the given table.
-        /// 주어진 테이블의 `n`번째 행을 반환합니다
+        /// 주어진 테이블의 `n`번째 행을 반환합니다.
         func index(_ n: Int, inTable: TableID) -> TableRow { ... }
     }
     ```
@@ -118,13 +118,13 @@
     extension Box {
         /// Returns the `Int` stored in `self`, if any, and
         /// `nil` otherwise.
-        /// `self`에 저장된 `Int`가 만약에 있으면 반환하고,
+        /// `self`에 저장된 `Int`가, 만약에 있으면, 반환하고
         /// 그렇지 않으면 `nil`을 반환합니다.
         func value() -> Int? { ... }
 
         /// Returns the `String` stored in `self`, if any, and
         /// `nil` otherwise.
-        /// `self`에 저장된 `String`이 만약에 있으면 반환하고,
+        /// `self`에 저장된 `String`이, 만약에 있으면, 반환하고
         /// 그렇지 않으면 `nil`을 반환합니다.
         func value() -> String? { ... }
     }
