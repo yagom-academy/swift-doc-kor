@@ -243,7 +243,7 @@
     - **초심자 입장에서 혼동되지 않도록 합니다**: 누군가는 웹 검색을 통해 사용된 용어가 가지고 있는 고유한 의미를 찾아내려고 할 것입니다.  
 
 - <i><span style="color: #C0C0C0">**Avoid abbreviations.** Abbreviations, especially non-standard ones, are effectively terms-of-art, because understanding depends on correctly translating them into their non-abbreviated forms.</span></i>
-- **축약어를 피하도록 합니다.** 표준 축약어가 아닌 축약어들은 실질적으로 기술 용어입니다. 축약되지 않은 표현으로 얼마나 잘 번역했는지에 따라 그 기술 용어에 대한 이해도가 달라지기 때문입니다.(따라서 누구나 쉽게 이해할 수 있도록 축약어를 피하는 것이 좋습니다.)
+- **축약어를 피하도록 합니다.** 표준 축약어가 아닌 축약어들은 실질적으로 기술 용어입니다. 축약되지 않은 표현으로 얼마나 잘 번역하는지에 따라 그 기술 용어에 대한 이해도가 달라지기 때문입니다.(따라서 누구나 쉽게 이해할 수 있도록 축약어를 피하는 것이 좋습니다.)
 
     > <i><span style="color: #C0C0C0">The intended meaning for any abbreviation you use should be easily found by a web search.</span></i>
     > 축약어를 사용할 때 의도했던 의미를 웹 검색으로 쉽게 찾을 수 있어야 합니다.
@@ -252,7 +252,7 @@
 - **선례를 따르도록 합니다.** 일반적으로 사용해오던 기존의 용어를 대체하면서까지 초심자의 눈높이에 맞춰 용어를 최적화하지 않도록 합니다. 
 
     <i><span style="color: #C0C0C0">It is better to name a contiguous data structure Array than to use a simplified term such as List, even though a beginner might grasp the meaning of List more easily. Arrays are fundamental in modern computing, so every programmer knows—or will soon learn—what an array is. Use a term that most programmers are familiar with, and their web searches and questions will be rewarded.</span></i>
-    연속적인 자료구조의 이름으로 List를 사용하는 것이 초심자에게는 그 뜻을 이해하기에 더 쉬울지 몰라도 쉽게 이해 가능한 List보다는 Array를 사용하는 것이 좋습니다. Array는 현대 컴퓨팅의 기초이기 때문에 모든 프로그래머들이 알고 있고 설령 아직 배우지 않은 프로그래머일지라도 곧 배우게 됩니다. 대부분의 프로그래머들에게 익숙한 용어를 사용하면 웹 검색과 질문을 통해 그 의미를 쉽게 찾을 수 있습니다.
+    연속적인 자료구조의 이름으로 List보다는 Array를 사용하는 것이 좋습니다. List를 사용하는 것이 초심자에게는 그 뜻을 이해하기에 더 쉬울지 모르지만 말입니다. Array는 현대 컴퓨팅의 기초이기 때문에 모든 프로그래머들이 알고 있고, 설령 아직 배우지 않은 프로그래머일지라도 곧 배우게 됩니다. 대부분의 프로그래머들에게 익숙한 용어를 사용하면 웹 검색과 질문을 통해 그 의미를 쉽게 찾을 수 있습니다.
 
     <i><span style="color: #C0C0C0">Within a particular programming domain, such as mathematics, a widely precedented term such as sin(x) is preferable to an explanatory phrase such as verticalPositionOnUnitCircleAtOriginOfEndOfRadiusWithAngle(x). Note that in this case, precedent outweighs the guideline to avoid abbreviations: although the complete word is sine, “sin(x)” has been in common use among programmers for decades, and among mathematicians for centuries.</span></i>
     수학과 같은 특정 프로그래밍 도메인에서 sin(x)와 같은 용어는 해당 표현의 의미를 풀어서 설명한 verticalPositionOnUnitCircleAtOriginOfEndOfRadiusWithAngle(x)보다 일반적으로 사용되고 있는 sin(x)를 사용하는 것이 좋습니다. sin(x)는 축약어 이지만 이 경우 축약어를 피하라는 권장 지침을 지키는 것 이상으로 기존에 사용해왔던 선례를 따르는 것이 중요하다는 점에 유의하도록 합니다: 비록 정확한 단어는 sine이지만, 수십 년간 프로그래머들과 또 수 세기 동안 수학자들 사이에서는 "sin(x)"라는 표현이 일반적으로 사용되어 왔습니다.
