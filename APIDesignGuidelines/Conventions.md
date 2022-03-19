@@ -86,8 +86,7 @@
     extension Collection where Element : Equatable {
         /// Returns `true` iff `self` contains an element equal to
         /// `sought`.
-        /// `self`에 동일한 요소가 포함된 경우 `true`를 반환합니다.
-        /// `sought`와 
+        /// `self`에 `sought`와 동일한 요소가 포함된 경우 `true`를 반환합니다.
         func contains(_ sought: Element) -> Bool { ... }
     }
     ```
