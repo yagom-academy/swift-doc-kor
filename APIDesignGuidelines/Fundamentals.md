@@ -1,6 +1,6 @@
 
 # Fundamentals (핵심 개념)
-
+/Users/joy/Desktop/swift-doc-kor/APIDesignGuidelines/Conventions.md
 - <i><span style="color: #C0C0C0">**Clarity at the point of use** is your most important goal. Entities such as methods and properties are declared only once but used repeatedly. Design APIs to make those uses clear and concise. When evaluating a design, reading a declaration is seldom sufficient; always examine a use case to make sure it looks clear in context.</span></i>
 
 - API 설계의 가장 중요한 목적은 **사용하는 시점에서의 명료함**입니다. 메서드나 프로퍼티와 같은 개체는 한 번 선언해두면 반복적으로 사용합니다. API는 이러한 개체들을 명확하고 간결하게 사용할 수 있도록 설계해야합니다. API 설계를 제대로 하였는지 평가할 때는 코드의 선언부를 읽는 것만으로는 충분하지 않습니다. 항상 문맥에 알맞도록 명확하게 설계하였는지 실질적인 사용 예시를 통해 확인해보아야합니다.
