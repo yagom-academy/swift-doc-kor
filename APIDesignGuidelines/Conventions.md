@@ -5,7 +5,7 @@
 
 - <i><span style="color: #C0C0C0">**Document the complexity of any computed property that is not O(1).** People often assume that property access involves no significant computation, because they have stored properties as a mental model. Be sure to alert them when that assumption may be violated.</span></i>
 
-- **복잡도가 O(1)이 아닌 연산 프로퍼티는 복잡도를 기록합니다.** 사람들은 보통 프로퍼티에 접근할 때 엄청난 연산을 한다고 가정하지 않습니다. 왜냐하면 정신 모델에 저장 프로퍼티가 있기 때문입니다. 이 가정이 위반될 수 있을 때 반드시 알려야 합니다.
+- **복잡도가 O(1)이 아닌 연산 프로퍼티는 복잡도를 기록합니다.** 사람들은 보통 저장 프로퍼티를 떠올리기 때문에 프로퍼티에 접근하는 것에 엄청난 연산이 필요하다고 생각하지 않습니다. 프로퍼티에 접근할 때 추가적인 비용이 발생하는 경우에는 반드시 알려야 합니다.
 
 - <i><span style="color: #C0C0C0">**Prefer methods and properties to free functions.** Free functions are used only in special cases:</span></i>
 
