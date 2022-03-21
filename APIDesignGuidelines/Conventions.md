@@ -1,30 +1,41 @@
 
 # Conventions
 
-## General Conventions
+## General Conventions (일반 규칙)
 
 - <i><span style="color: #C0C0C0">**Document the complexity of any computed property that is not O(1).** People often assume that property access involves no significant computation, because they have stored properties as a mental model. Be sure to alert them when that assumption may be violated.</span></i>
 
+- **복잡도가 O(1)이 아닌 연산 프로퍼티는 복잡도를 기록합니다.** 사람들은 보통 저장 프로퍼티를 떠올리기 때문에 프로퍼티에 접근하는 것에 엄청난 연산이 필요하다고 생각하지 않습니다. 프로퍼티에 접근할 때 추가적인 비용이 발생하는 경우에는 반드시 알려야 합니다.
+
 - <i><span style="color: #C0C0C0">**Prefer methods and properties to free functions.** Free functions are used only in special cases:</span></i>
 
+- **자유 함수보다 메서드와 프로퍼티를 선호합니다.** 자유 함수는 특수한 경우에만 사용됩니다:
+
     1. <i><span style="color: #C0C0C0">When there’s no obvious self:</span></i>
+    명확한 self가 없을 때:
         ```swift
         min(x, y, z)
         ```
 
     2. <i><span style="color: #C0C0C0">When the function is an unconstrained generic:</span></i>
+    제약 없는 제네릭 함수일 때:
         ```swift
         print(x)
         ```
 
     3. <i><span style="color: #C0C0C0">When function syntax is part of the established domain notation:</span></i>
+    함수 구문이 특정한 도메인 표기법의 일부일 때:
         ```swift
         sin(x)
         ```
 
 - <i><span style="color: #C0C0C0">**Follow case conventions.** Names of types and protocols are UpperCamelCase. Everything else is lowerCamelCase.</span></i>
 
+- **대소문자 표기법을 따릅니다.** 타입과 프로토콜의 이름은 UpperCamelCase, 그 외 모든 것은 lowerCamelCase로 표기합니다.  
+
     <i><span style="color: #C0C0C0">[Acronyms and initialisms](https://en.wikipedia.org/wiki/Acronym) that commonly appear as all upper case in American English should be uniformly up- or down-cased according to case conventions:</span></i>
+
+    단어로 발음하는 두문자어와 한 글자씩 발음하는 두문자어는 미국 영어에서 일반적으로 대문자로 씁니다. 두문자어는 규칙에 따라 일관되게 대문자 또는 소문자로 나타내야 합니다:
 
     ```swift
     var utf8Bytes: [UTF8.CodeUnit]
@@ -34,6 +45,8 @@
 
     <i><span style="color: #C0C0C0">Other acronyms should be treated as ordinary words:</span></i>
 
+    그 외의 단어로 발음하는 두문자어는 일반적인 단어처럼 나타내야 합니다:
+
     ```swift
     var radarDetector: RadarScanner
     var enjoysScubaDiving = true
@@ -41,57 +54,77 @@
 
 - <i><span style="color: #C0C0C0">**Methods can share a base name** when they share the same basic meaning or when they operate in distinct domains.</span></i>
 
+- 기본적인 의미가 같거나 서로 다른 도메인에서 동작할 때 **메서드들은 기본이 되는 이름을 공유할 수 있습니다.** 
+
     <i><span style="color: #C0C0C0">For example, the following is encouraged, since the methods do essentially the same things:</span></i>
+
+    예를 들어, 다음 메서드들은 본질적으로 같은 일을 하고 있으므로 같은 이름을 사용하는 것이 권장됩니다:
 
     ```swift
     ✅
     extension Shape {
         /// Returns `true` iff `other` is within the area of `self`.
+        /// `other`가 `self`의 영역 내에 있는 경우 `true`를 반환합니다.
         func contains(_ other: Point) -> Bool { ... }
 
         /// Returns `true` iff `other` is entirely within the area of `self`.
+        /// `other`가 완전히 `self`의 영역 내에 있는 경우 `true`를 반환합니다.
         func contains(_ other: Shape) -> Bool { ... }
 
         /// Returns `true` iff `other` is within the area of `self`.
+        /// `other`가 `self`의 영역 내에 있는 경우 `true`를 반환합니다.
         func contains(_ other: LineSegment) -> Bool { ... }
     }
     ```
 
     <i><span style="color: #C0C0C0">And since geometric types and collections are separate domains, this is also fine in the same program:</span></i>
 
+    위의 기하학 타입과 컬렉션은 다른 도메인이라서, 같은 프로그램 내에서 이름이 같아도 괜찮습니다:
+
     ```swift
     ✅
     extension Collection where Element : Equatable {
         /// Returns `true` iff `self` contains an element equal to
         /// `sought`.
+        /// `self`에 `sought`와 동일한 요소가 포함된 경우 `true`를 반환합니다.
         func contains(_ sought: Element) -> Bool { ... }
     }
     ```
 
     <i><span style="color: #C0C0C0">However, these index methods have different semantics, and should have been named differently:</span></i>
+    
+    하지만 이 index 메서드들은 다른 의미를 가지고 있으므로 다른 이름을 지어야 합니다:
 
     ```swift
     ❌
     extension Database {
         /// Rebuilds the database's search index
+        /// 데이터베이스의 검색 인덱스 리빌드
         func index() { ... }
 
         /// Returns the `n`th row in the given table.
+        /// 주어진 테이블의 `n`번째 행을 반환합니다.
         func index(_ n: Int, inTable: TableID) -> TableRow { ... }
     }
     ```
 
     <i><span style="color: #C0C0C0">Lastly, avoid “overloading on return type” because it causes ambiguities in the presence of type inference.</span></i>
 
+    마지막으로 “반환 타입만 재정의”하는 방식은 타입 추론 시 모호해질 수 있으므로 피합니다.
+
     ```swift
     ❌
     extension Box {
         /// Returns the `Int` stored in `self`, if any, and
         /// `nil` otherwise.
+        /// `self`에 저장된 `Int`가, 만약에 있으면, 반환하고
+        /// 그렇지 않으면 `nil`을 반환합니다.
         func value() -> Int? { ... }
 
         /// Returns the `String` stored in `self`, if any, and
         /// `nil` otherwise.
+        /// `self`에 저장된 `String`이, 만약에 있으면, 반환하고
+        /// 그렇지 않으면 `nil`을 반환합니다.
         func value() -> String? { ... }
     }
     ```
