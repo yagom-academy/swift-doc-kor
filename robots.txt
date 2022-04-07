@@ -1,0 +1,3 @@
+ User-agent: *
+ Allow: /
+ Sitemap: https://github.com/yagom-academy/swift-doc-kor/sitemap.xml

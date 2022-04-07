@@ -227,166 +227,192 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="conventions">Conventions</h1>
-<h2 id="general-conventions">General Conventions</h2>
+<h2 id="general-conventions-&#xC77C;&#xBC18;-&#xADDC;&#xCE59;">General Conventions (&#xC77C;&#xBC18; &#xADDC;&#xCE59;)</h2>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Document the complexity of any computed property that is not O(1).</strong> People often assume that property access involves no significant computation, because they have stored properties as a mental model. Be sure to alert them when that assumption may be violated.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Document the complexity of any computed property that is not O(1).</strong> People often assume that property access involves no significant computation, because they have stored properties as a mental model. Be sure to alert them when that assumption may be violated.</span></i><br>  <strong>&#xBCF5;&#xC7A1;&#xB3C4;&#xAC00; O(1)&#xC774; &#xC544;&#xB2CC; &#xC5F0;&#xC0B0; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xB294; &#xBCF5;&#xC7A1;&#xB3C4;&#xB97C; &#xAE30;&#xB85D;&#xD569;&#xB2C8;&#xB2E4;.</strong> &#xC0AC;&#xB78C;&#xB4E4;&#xC740; &#xBCF4;&#xD1B5; &#xC800;&#xC7A5; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xB97C; &#xB5A0;&#xC62C;&#xB9AC;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB294; &#xAC83;&#xC5D0; &#xC5C4;&#xCCAD;&#xB09C; &#xC5F0;&#xC0B0;&#xC774; &#xD544;&#xC694;&#xD558;&#xB2E4;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xB54C; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xBE44;&#xC6A9;&#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBC18;&#xB4DC;&#xC2DC; &#xC54C;&#xB824;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>Prefer methods and properties to free functions.</strong> Free functions are used only in special cases:</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Prefer methods and properties to free functions.</strong> Free functions are used only in special cases:</span></i><br>  <strong>&#xC790;&#xC720; &#xD568;&#xC218;&#xBCF4;&#xB2E4; &#xBA54;&#xC11C;&#xB4DC;&#xC640; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xB97C; &#xC120;&#xD638;&#xD569;&#xB2C8;&#xB2E4;.</strong> &#xC790;&#xC720; &#xD568;&#xC218;&#xB294; &#xD2B9;&#xC218;&#xD55C; &#xACBD;&#xC6B0;&#xC5D0;&#xB9CC; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;:</p>
 <ol>
-<li><p><i><span style="color: #C0C0C0">When there&#x2019;s no obvious self:</span></i></p>
+<li><p><i><span style="color: #C0C0C0">When there&#x2019;s no obvious self:</span></i><br>&#xBA85;&#xD655;&#xD55C; self&#xAC00; &#xC5C6;&#xC744; &#xB54C;:</p>
 <pre><code class="lang-swift"> <span class="hljs-built_in">min</span>(x, y, z)
 </code></pre>
 </li>
-<li><p><i><span style="color: #C0C0C0">When the function is an unconstrained generic:</span></i></p>
+<li><p><i><span style="color: #C0C0C0">When the function is an unconstrained generic:</span></i><br>&#xC81C;&#xC57D; &#xC5C6;&#xB294; &#xC81C;&#xB124;&#xB9AD; &#xD568;&#xC218;&#xC77C; &#xB54C;:</p>
 <pre><code class="lang-swift"> <span class="hljs-built_in">print</span>(x)
 </code></pre>
 </li>
-<li><p><i><span style="color: #C0C0C0">When function syntax is part of the established domain notation:</span></i></p>
+<li><p><i><span style="color: #C0C0C0">When function syntax is part of the established domain notation:</span></i><br>&#xD568;&#xC218; &#xAD6C;&#xBB38;&#xC774; &#xD2B9;&#xC815;&#xD55C; &#xB3C4;&#xBA54;&#xC778; &#xD45C;&#xAE30;&#xBC95;&#xC758; &#xC77C;&#xBD80;&#xC77C; &#xB54C;:</p>
 <pre><code class="lang-swift"> sin(x)
 </code></pre>
 </li>
 </ol>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>Follow case conventions.</strong> Names of types and protocols are UpperCamelCase. Everything else is lowerCamelCase.</span></i></p>
-<p>  <i><span style="color: #C0C0C0"><a href="https://en.wikipedia.org/wiki/Acronym" target="_blank">Acronyms and initialisms</a> that commonly appear as all upper case in American English should be uniformly up- or down-cased according to case conventions:</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Follow case conventions.</strong> Names of types and protocols are UpperCamelCase. Everything else is lowerCamelCase.</span></i><br>  <strong>&#xB300;&#xC18C;&#xBB38;&#xC790; &#xD45C;&#xAE30;&#xBC95;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</strong> &#xD0C0;&#xC785;&#xACFC; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC758; &#xC774;&#xB984;&#xC740; UpperCamelCase, &#xADF8; &#xC678; &#xBAA8;&#xB4E0; &#xAC83;&#xC740; lowerCamelCase&#xB85C; &#xD45C;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;.  </p>
+<p>  <i><span style="color: #C0C0C0"><a href="https://en.wikipedia.org/wiki/Acronym" target="_blank">Acronyms and initialisms</a> that commonly appear as all upper case in American English should be uniformly up- or down-cased according to case conventions:</span></i><br>  &#xB2E8;&#xC5B4;&#xB85C; &#xBC1C;&#xC74C;&#xD558;&#xB294; &#xB450;&#xBB38;&#xC790;&#xC5B4;&#xC640; &#xD55C; &#xAE00;&#xC790;&#xC529; &#xBC1C;&#xC74C;&#xD558;&#xB294; &#xB450;&#xBB38;&#xC790;&#xC5B4;&#xB294; &#xBBF8;&#xAD6D; &#xC601;&#xC5B4;&#xC5D0;&#xC11C; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xB300;&#xBB38;&#xC790;&#xB85C; &#xC501;&#xB2C8;&#xB2E4;. &#xB450;&#xBB38;&#xC790;&#xC5B4;&#xB294; &#xADDC;&#xCE59;&#xC5D0; &#xB530;&#xB77C; &#xC77C;&#xAD00;&#xB418;&#xAC8C; &#xB300;&#xBB38;&#xC790; &#xB610;&#xB294; &#xC18C;&#xBB38;&#xC790;&#xB85C; &#xB098;&#xD0C0;&#xB0B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-swift">  <span class="hljs-keyword">var</span> utf8Bytes: [<span class="hljs-type">UTF8</span>.<span class="hljs-type">CodeUnit</span>]
   <span class="hljs-keyword">var</span> isRepresentableAsASCII = <span class="hljs-literal">true</span>
   <span class="hljs-keyword">var</span> userSMTPServer: <span class="hljs-type">SecureSMTPServer</span>
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Other acronyms should be treated as ordinary words:</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Other acronyms should be treated as ordinary words:</span></i><br>  &#xADF8; &#xC678;&#xC758; &#xB2E8;&#xC5B4;&#xB85C; &#xBC1C;&#xC74C;&#xD558;&#xB294; &#xB450;&#xBB38;&#xC790;&#xC5B4;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xB2E8;&#xC5B4;&#xCC98;&#xB7FC; &#xB098;&#xD0C0;&#xB0B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-swift">  <span class="hljs-keyword">var</span> radarDetector: <span class="hljs-type">RadarScanner</span>
   <span class="hljs-keyword">var</span> enjoysScubaDiving = <span class="hljs-literal">true</span>
 </code></pre>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>Methods can share a base name</strong> when they share the same basic meaning or when they operate in distinct domains.</span></i></p>
-<p>  <i><span style="color: #C0C0C0">For example, the following is encouraged, since the methods do essentially the same things:</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Methods can share a base name</strong> when they share the same basic meaning or when they operate in distinct domains.</span></i><br>  &#xAE30;&#xBCF8;&#xC801;&#xC778; &#xC758;&#xBBF8;&#xAC00; &#xAC19;&#xAC70;&#xB098; &#xC11C;&#xB85C; &#xB2E4;&#xB978; &#xB3C4;&#xBA54;&#xC778;&#xC5D0;&#xC11C; &#xB3D9;&#xC791;&#xD560; &#xB54C; <strong>&#xBA54;&#xC11C;&#xB4DC;&#xB4E4;&#xC740; &#xAE30;&#xBCF8;&#xC774; &#xB418;&#xB294; &#xC774;&#xB984;&#xC744; &#xACF5;&#xC720;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</strong> </p>
+<p>  <i><span style="color: #C0C0C0">For example, the following is encouraged, since the methods do essentially the same things:</span></i><br>  &#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xB2E4;&#xC74C; &#xBA54;&#xC11C;&#xB4DC;&#xB4E4;&#xC740; &#xBCF8;&#xC9C8;&#xC801;&#xC73C;&#xB85C; &#xAC19;&#xC740; &#xC77C;&#xC744; &#xD558;&#xACE0; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xAC19;&#xC740; &#xC774;&#xB984;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xAD8C;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-swift">  &#x2705;
   <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Shape</span> </span>{
       <span class="hljs-comment">/// Returns `true` iff `other` is within the area of `self`.</span>
+      <span class="hljs-comment">/// `other`&#xAC00; `self`&#xC758; &#xC601;&#xC5ED; &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xACBD;&#xC6B0; `true`&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: Point)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
 
       <span class="hljs-comment">/// Returns `true` iff `other` is entirely within the area of `self`.</span>
+      <span class="hljs-comment">/// `other`&#xAC00; &#xC644;&#xC804;&#xD788; `self`&#xC758; &#xC601;&#xC5ED; &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xACBD;&#xC6B0; `true`&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: Shape)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
 
       <span class="hljs-comment">/// Returns `true` iff `other` is within the area of `self`.</span>
+      <span class="hljs-comment">/// `other`&#xAC00; `self`&#xC758; &#xC601;&#xC5ED; &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xACBD;&#xC6B0; `true`&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> other: LineSegment)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
   }
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">And since geometric types and collections are separate domains, this is also fine in the same program:</span></i></p>
+<p>  <i><span style="color: #C0C0C0">And since geometric types and collections are separate domains, this is also fine in the same program:</span></i><br>  &#xC704;&#xC758; &#xAE30;&#xD558;&#xD559; &#xD0C0;&#xC785;&#xACFC; &#xCEEC;&#xB809;&#xC158;&#xC740; &#xB2E4;&#xB978; &#xB3C4;&#xBA54;&#xC778;&#xC774;&#xB77C;&#xC11C;, &#xAC19;&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xB0B4;&#xC5D0;&#xC11C; &#xC774;&#xB984;&#xC774; &#xAC19;&#xC544;&#xB3C4; &#xAD1C;&#xCC2E;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-swift">  &#x2705;
   <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Collection</span> <span class="hljs-title">where</span> <span class="hljs-title">Element</span> : <span class="hljs-title">Equatable</span> </span>{
       <span class="hljs-comment">/// Returns `true` iff `self` contains an element equal to</span>
       <span class="hljs-comment">/// `sought`.</span>
+      <span class="hljs-comment">/// `self`&#xC5D0; `sought`&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xC694;&#xC18C;&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xACBD;&#xC6B0; `true`&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-number">_</span> sought: Element)</span></span> -&gt; <span class="hljs-type">Bool</span> { ... }
   }
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">However, these index methods have different semantics, and should have been named differently:</span></i></p>
+<p>  <i><span style="color: #C0C0C0">However, these index methods have different semantics, and should have been named differently:</span></i><br>  &#xD558;&#xC9C0;&#xB9CC; &#xC774; index &#xBA54;&#xC11C;&#xB4DC;&#xB4E4;&#xC740; &#xB2E4;&#xB978; &#xC758;&#xBBF8;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xB978; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-swift">  &#x274C;
   <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Database</span> </span>{
       <span class="hljs-comment">/// Rebuilds the database&apos;s search index</span>
+      <span class="hljs-comment">/// &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC758; &#xAC80;&#xC0C9; &#xC778;&#xB371;&#xC2A4; &#xB9AC;&#xBE4C;&#xB4DC;</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">index</span><span class="hljs-params">()</span></span> { ... }
 
       <span class="hljs-comment">/// Returns the `n`th row in the given table.</span>
+      <span class="hljs-comment">/// &#xC8FC;&#xC5B4;&#xC9C4; &#xD14C;&#xC774;&#xBE14;&#xC758; `n`&#xBC88;&#xC9F8; &#xD589;&#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">index</span><span class="hljs-params">(<span class="hljs-number">_</span> n: Int, inTable: TableID)</span></span> -&gt; <span class="hljs-type">TableRow</span> { ... }
   }
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Lastly, avoid &#x201C;overloading on return type&#x201D; because it causes ambiguities in the presence of type inference.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Lastly, avoid &#x201C;overloading on return type&#x201D; because it causes ambiguities in the presence of type inference.</span></i><br>  &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#x201C;&#xBC18;&#xD658; &#xD0C0;&#xC785;&#xB9CC; &#xC7AC;&#xC815;&#xC758;&#x201D;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC740; &#xD0C0;&#xC785; &#xCD94;&#xB860; &#xC2DC; &#xBAA8;&#xD638;&#xD574;&#xC9C8; &#xC218; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xD53C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x274C;
   <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Box</span> </span>{
       <span class="hljs-comment">/// Returns the `Int` stored in `self`, if any, and</span>
       <span class="hljs-comment">/// `nil` otherwise.</span>
+      <span class="hljs-comment">/// `self`&#xC5D0; &#xC800;&#xC7A5;&#xB41C; `Int`&#xAC00;, &#xB9CC;&#xC57D;&#xC5D0; &#xC788;&#xC73C;&#xBA74;, &#xBC18;&#xD658;&#xD558;&#xACE0;</span>
+      <span class="hljs-comment">/// &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; `nil`&#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">value</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span>? { ... }
 
       <span class="hljs-comment">/// Returns the `String` stored in `self`, if any, and</span>
       <span class="hljs-comment">/// `nil` otherwise.</span>
+      <span class="hljs-comment">/// `self`&#xC5D0; &#xC800;&#xC7A5;&#xB41C; `String`&#xC774;, &#xB9CC;&#xC57D;&#xC5D0; &#xC788;&#xC73C;&#xBA74;, &#xBC18;&#xD658;&#xD558;&#xACE0;</span>
+      <span class="hljs-comment">/// &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; `nil`&#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</span>
       <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">value</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">String</span>? { ... }
   }
 </code></pre>
 </li>
 </ul>
 <p><br></p>
-<h2 id="parameters">Parameters</h2>
+<h2 id="parameters-&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;">Parameters (&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;)</h2>
 <pre><code class="lang-swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">move</span><span class="hljs-params">(from start: Point, to end: Point)</span></span>
 </code></pre>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Choose parameter names to serve documentation.</strong> Even though parameter names do not appear at a function or method&#x2019;s point of use, they play an important explanatory role.</span></i></p>
-<p>  <i><span style="color: #C0C0C0">Choose these names to make documentation easy to read. For example, these names make documentation read naturally:</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Choose parameter names to serve documentation.</strong> Even though parameter names do not appear at a function or method&#x2019;s point of use, they play an important explanatory role.</span></i><br>  <span><strong>&#xBB38;&#xC11C;&#xB97C; &#xC81C;&#xACF5;&#xD560; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC744; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;.</strong> &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC774; &#xD568;&#xC218; &#xB610;&#xB294; &#xBA54;&#xC11C;&#xB4DC;&#xC758; &#xC0AC;&#xC6A9; &#xC2DC;&#xC810;&#xC5D0; &#xB098;&#xD0C0;&#xB098;&#xC9C0; &#xC54A;&#xB354;&#xB77C;&#xB3C4; &#xC124;&#xBA85;&#xC5D0; &#xC911;&#xC694;&#xD55C; &#xC5ED;&#xD560;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.</span></p>
+<p>  <i><span style="color: #C0C0C0">Choose these names to make documentation easy to read. For example, these names make documentation read naturally:</span></i><br>  <span>&#xBB38;&#xC11C;&#xB97C; &#xC27D;&#xAC8C; &#xC77D;&#xC744; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC744; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC740; &#xC790;&#xC5F0;&#xC2A4;&#xB7FD;&#xAC8C; &#xBB38;&#xC11C;&#xB97C; &#xC77D;&#xC744; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;:</span></p>
 <pre><code class="lang-swift">  &#x2705;
   <span class="hljs-comment">/// Return an `Array` containing the elements of `self`</span>
   <span class="hljs-comment">/// that satisfy `predicate`.</span>
+  <span class="hljs-comment">/// &apos;predicate&apos;&#xB97C; &#xB9CC;&#xC871;&#xC2DC;&#xD0A4;&#xB294; &apos;self&apos;&#xC758; &#xC694;&#xC18C;&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xB294; &apos;Array&apos;&#xB97C; &#xBC18;&#xD658;</span>
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">filter</span><span class="hljs-params">(<span class="hljs-number">_</span> predicate: <span class="hljs-params">(Element)</span></span></span> -&gt; <span class="hljs-type">Bool</span>) -&gt; [<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span>]
 
   <span class="hljs-comment">/// Replace the given `subRange` of elements with `newElements`.</span>
+  <span class="hljs-comment">/// &#xC8FC;&#xC5B4;&#xC9C4; &#xC694;&#xC18C;&#xC758; &apos;subRange&apos;&#xB97C; &apos;newElements&apos;&#xB85C; &#xBCC0;&#xD658;</span>
   <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">replaceRange</span><span class="hljs-params">(<span class="hljs-number">_</span> subRange: Range, with newElements: [E])</span></span>
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">These, however, make the documentation awkward and ungrammatical:</span></i></p>
+<p>  <i><span style="color: #C0C0C0">These, however, make the documentation awkward and ungrammatical:</span></i><br>  <span>&#xADF8;&#xB7EC;&#xB098; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB294; &#xBB38;&#xC11C;&#xB97C; &#xC5B4;&#xC0C9;&#xD558;&#xACE0; &#xBB38;&#xBC95;&#xC5D0; &#xB9DE;&#xC9C0; &#xC54A;&#xAC8C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;:</span></p>
 <pre><code class="lang-swift">  &#x274C;
   <span class="hljs-comment">/// Return an `Array` containing the elements of `self`</span>
   <span class="hljs-comment">/// that satisfy `includedInResult`.</span>
+  <span class="hljs-comment">/// &apos;includedInResult&apos;&#xB97C; &#xB9CC;&#xC871;&#xC2DC;&#xD0A4;&#xB294; &apos;self&apos;&#xC758; &#xC694;&#xC18C;&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xB294; &apos;Array&apos;&#xB97C; &#xBC18;&#xD658;</span>
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">filter</span><span class="hljs-params">(<span class="hljs-number">_</span> includedInResult: <span class="hljs-params">(Element)</span></span></span> -&gt; <span class="hljs-type">Bool</span>) -&gt; [<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span>]
 
   <span class="hljs-comment">/// Replace the range of elements indicated by `r` with</span>
   <span class="hljs-comment">/// the contents of `with`.</span>
+  <span class="hljs-comment">/// &apos;r&apos;&#xB85C; &#xD45C;&#xC2DC;&#xB41C; &#xC694;&#xC18C;&#xC758; &#xBC94;&#xC704;&#xB97C; &apos;with&apos;&#xC758; &#xB0B4;&#xC6A9;&#xC73C;&#xB85C; &#xBCC0;&#xD658;</span>
   <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">replaceRange</span><span class="hljs-params">(<span class="hljs-number">_</span> r: Range, with: [E])</span></span>
 </code></pre>
 </li>
 </ul>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Take advantage of defaulted parameters</strong> when it simplifies common uses. Any parameter with a single commonly-used value is a candidate for a default.</span></i></p>
-<p>  <i><span style="color: #C0C0C0">Default arguments improve readability by hiding irrelevant information. For example:</span></i></p>
-<pre><code class="lang-swift">  &#x274C;
-  <span class="hljs-keyword">let</span> order = lastName.compare(
-  royalFamilyName, options: [], range: <span class="hljs-literal">nil</span>, locale: <span class="hljs-literal">nil</span>)
-</code></pre>
-<p>  <i><span style="color: #C0C0C0">can become the much simpler:</span><i></i></i></p>
-<pre><code class="lang-swift">  &#x2705;
-  <span class="hljs-keyword">let</span> order = lastName.compare(royalFamilyName)
-</code></pre>
-<p>  <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i></p>
-<pre><code class="lang-swift">  &#x2705;
-  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
-      <span class="hljs-comment">/// ...description...</span>
-      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
-          <span class="hljs-number">_</span> other: String, options: CompareOptions = [],
-          range: Range? = <span class="hljs-literal">nil</span>, locale: Locale? = <span class="hljs-literal">nil</span>
-      )</span></span> -&gt; <span class="hljs-type">Ordering</span>
-  }
-</code></pre>
-<p>  <i><span style="color: #C0C0C0">The above may not be simple, but it is much simpler than:</span></i></p>
-<pre><code class="lang-swift">  &#x274C;
-  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
-      <span class="hljs-comment">/// ...description 1...</span>
-      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-number">_</span> other: String)</span></span> -&gt; <span class="hljs-type">Ordering</span>
-      <span class="hljs-comment">/// ...description 2...</span>
-      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-number">_</span> other: String, options: CompareOptions)</span></span> -&gt; <span class="hljs-type">Ordering</span>
-      <span class="hljs-comment">/// ...description 3...</span>
-      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
-          <span class="hljs-number">_</span> other: String, options: CompareOptions, range: Range)</span></span> -&gt; <span class="hljs-type">Ordering</span>
-      <span class="hljs-comment">/// ...description 4...</span>
-      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">compare</span><span class="hljs-params">(
-          <span class="hljs-number">_</span> other: String, options: StringCompareOptions,
-          range: Range, locale: Locale)</span></span> -&gt; <span class="hljs-type">Ordering</span>
-  }
-</code></pre>
-<p>  <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships&#x2014;for example, foo(bar: nil) and foo() aren&#x2019;t always synonyms&#x2014;make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Take advantage of defaulted parameters</strong> when it simplifies common uses. Any parameter with a single commonly-used value is a candidate for a default.</span></i><br>  <span><strong>&#xAE30;&#xBCF8; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB294;</strong> &#xC77C;&#xBC18;&#xC801;&#xC778; &#xC0AC;&#xC6A9;&#xC744; &#xB2E8;&#xC21C;&#xD654;&#xD560; &#xB54C; <strong>&#xC774;&#xC810;&#xC744; &#xAC00;&#xC9D1;&#xB2C8;&#xB2E4;.</strong> &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xB2E8;&#xC77C; &#xAC12;&#xC744; &#xAC00;&#xC9C4; &#xBAA8;&#xB4E0; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB294; &#xAE30;&#xBCF8;&#xAC12; &#xD6C4;&#xBCF4;&#xC785;&#xB2C8;&#xB2E4;.</span></p>
+<p><i><span style="color: #C0C0C0">Default arguments improve readability by hiding irrelevant information. For example:</span></i><br><span>&#xAE30;&#xBCF8; &#xC778;&#xC790;&#xB294; &#xAD00;&#xB828; &#xC5C6;&#xB294; &#xC815;&#xBCF4;&#xB97C; &#xC228;&#xAE40;&#xC73C;&#xB85C; &#xAC00;&#xB3C5;&#xC131;&#xC744; &#xD5A5;&#xC0C1;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4;:</span></p>
 </li>
 </ul>
+<pre><code>```swift
+&#x274C;
+let order = lastName.compare(
+royalFamilyName, options: [], range: nil, locale: nil)
+```
+</code></pre><p>  <i><span style="color: #C0C0C0">can become the much simpler:</span></i><br>  <span>&#xD6E8;&#xC52C; &#xB354; &#xB2E8;&#xC21C;&#xD574;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</span></p>
+<pre><code>```swift
+&#x2705;
+let order = lastName.compare(royalFamilyName)
+```
+</code></pre><p>  <i><span style="color: #C0C0C0">Default arguments are generally preferable to the use of method families, because they impose a lower cognitive burden on anyone trying to understand the API.</span></i> 
+  <span>&#xAE30;&#xBCF8; &#xC778;&#xC790;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xBA54;&#xC11C;&#xB4DC; &#xC9D1;&#xD569;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xBCF4;&#xB2E4; &#xC120;&#xD638;&#xB418;&#xB294;&#xB370;, API&#xB97C; &#xC774;&#xD574;&#xD558;&#xB824;&#xB294; &#xBAA8;&#xB4E0; &#xC0AC;&#xB78C;&#xC5D0;&#xAC8C; &#xC778;&#xC2DD;&#xC758; &#xBD80;&#xB2F4;&#xC744; &#xB0AE;&#xCDB0;&#xC90D;&#xB2C8;&#xB2E4;.</span></p>
+<pre><code>```swift
+&#x2705;
+extension String {
+    /// ...description...
+    /// ...&#xC124;&#xBA85;...
+    public func compare(
+        _ other: String, options: CompareOptions = [],
+        range: Range? = nil, locale: Locale? = nil
+    ) -&gt; Ordering
+}
+```
+</code></pre><p>  <i><span style="color: #C0C0C0">The above may not be simple, but it is much simpler than:</span></i><br>  <span>&#xC704;&#xC758; &#xB0B4;&#xC6A9;&#xC740; &#xAC04;&#xB2E8;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, &#xB2E4;&#xC74C;&#xBCF4;&#xB2E4;&#xB294; &#xB354; &#xAC04;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;:</span></p>
+<pre><code>```swift
+&#x274C;
+extension String {
+    /// ...description 1...
+    /// ...&#xC124;&#xBA85; 1...
+    public func compare(_ other: String) -&gt; Ordering
+    /// ...description 2...
+    /// ...&#xC124;&#xBA85; 2...
+    public func compare(_ other: String, options: CompareOptions) -&gt; Ordering
+    /// ...description 3...
+    /// ...&#xC124;&#xBA85; 3...
+    public func compare(
+        _ other: String, options: CompareOptions, range: Range) -&gt; Ordering
+    /// ...description 4...
+    /// ...&#xC124;&#xBA85; 4...
+    public func compare(
+        _ other: String, options: StringCompareOptions,
+        range: Range, locale: Locale) -&gt; Ordering
+}
+```
+</code></pre><p>  <i><span style="color: #C0C0C0">Every member of a method family needs to be separately documented and understood by users. To decide among them, a user needs to understand all of them, and occasional surprising relationships&#x2014;for example, foo(bar: nil) and foo() aren&#x2019;t always synonyms&#x2014;make this a tedious process of ferreting out minor differences in mostly identical documentation. Using a single method with defaults provides a vastly superior programmer experience.</span></i><br>  <span>&#xBA54;&#xC11C;&#xB4DC; &#xC9D1;&#xD569;&#xC758; &#xBAA8;&#xB4E0; &#xAD6C;&#xC131;&#xC740; &#xBCC4;&#xB3C4;&#xC758; &#xBB38;&#xC11C;&#xD654;&#xAC00; &#xD544;&#xC694;&#xD558;&#xBA70; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC774;&#xD574;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xC911; &#xD558;&#xB098;&#xB97C; &#xACB0;&#xC815;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xBA54;&#xC11C;&#xB4DC; &#xC9D1;&#xD569; &#xC804;&#xBD80;&#xB97C; &#xC774;&#xD574;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xB54C;&#xB54C;&#xB85C; &#xB180;&#xB77C;&#xC6B4; &#xAD00;&#xACC4;-&#xC608;&#xC2DC;&#xB85C;, foo(bar: nil)&#xACFC; foo()&#xB294; &#xD56D;&#xC0C1; &#xB3D9;&#xC758;&#xC5B4;&#xAC00; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;-&#xB294; &#xAC70;&#xC758; &#xB3D9;&#xC77C;&#xD55C; &#xBB38;&#xC11C;&#xC5D0;&#xC11C; &#xC791;&#xC740; &#xCC28;&#xC774;&#xB97C; &#xCC3E;&#xC544;&#xB0B4;&#xB294; &#xC9C0;&#xB8E8;&#xD55C; &#xACFC;&#xC815;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xACFC; &#xD568;&#xAED8; &#xB2E8;&#xC77C; &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xD6E8;&#xC52C; &#xB354; &#xC6B0;&#xC218;&#xD55C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBA38; &#xACBD;&#xD5D8;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</span></p>
 <ul>
-<li><i><span style="color: #C0C0C0"><strong>Prefer to locate parameters with defaults toward the end</strong> of the parameter list. Parameters without defaults are usually more essential to the semantics of a method, and provide a stable initial pattern of use where methods are invoked.</span></i></li>
+<li><i><span style="color: #C0C0C0"><strong>Prefer to locate parameters with defaults toward the end</strong> of the parameter list. Parameters without defaults are usually more essential to the semantics of a method, and provide a stable initial pattern of use where methods are invoked.</span></i>    </li>
+<li><span>&#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xBAA9;&#xB85D;&#xC758; <strong>&#xB9C8;&#xC9C0;&#xB9C9; &#xBC29;&#xD5A5;&#xC73C;&#xB85C; &#xAE30;&#xBCF8;&#xAC12;&#xC774; &#xC788;&#xB294; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC704;&#xCE58;&#xC2DC;&#xD0A4;&#xB294; &#xAC83;&#xC744; &#xC120;&#xD638;&#xD569;&#xB2C8;&#xB2E4;.</strong> &#xAE30;&#xBCF8;&#xAC12;&#xC774; &#xC5C6;&#xB294; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xBA54;&#xC11C;&#xB4DC;&#xC758; &#xC758;&#xBBF8;&#xAC00; &#xB354; &#xD544;&#xC218;&#xC801;&#xC774;&#xACE0;, &#xBA54;&#xC11C;&#xB4DC;&#xAC00; &#xD638;&#xCD9C;&#xB418;&#xB294; &#xACF3;&#xC5D0;&#xC11C; &#xC548;&#xC815;&#xC801;&#xC778; &#xCD08;&#xAE30; &#xD328;&#xD134;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</span></li>
 </ul>
 <p><br></p>
-<h2 id="argument-labels">Argument Labels</h2>
+<h2 id="argument-labels&#xC804;&#xB2EC;&#xC778;&#xC790;-&#xB808;&#xC774;&#xBE14;">Argument Labels(&#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;)</h2>
 <pre><code class="lang-swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">move</span><span class="hljs-params">(from start: Point, to end: Point)</span></span>
 x.move(from: x, to: y)
 </code></pre>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Omit all labels when arguments can&#x2019;t be usefully distinguished,</strong> e.g. min(number1, number2), zip(sequence1, sequence2).</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Omit all labels when arguments can&#x2019;t be usefully distinguished,</strong> e.g. min(number1, number2), zip(sequence1, sequence2).</span></i><br>  <strong>&#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC774; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xB4E4;&#xC744; &#xC720;&#xC6A9;&#xD558;&#xAC8C; &#xAD6C;&#xBD84;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294; &#xACBD;&#xC6B0; &#xBAA8;&#xB4E0; &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xBB34;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;.</strong> &#xC608;&#xC2DC; : min(number1, number2), zip(sequence1, sequence2).</p>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>In initializers that perform value preserving type conversions, omit the first argument label,</strong> e.g. Int64(someUInt32)</span></i></p>
-<p>  <i><span style="color: #C0C0C0">The first argument should always be the source of the conversion.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>In initializers that perform value preserving type conversions, omit the first argument label,</strong> e.g. Int64(someUInt32)</span></i><br>  &#xAC12;&#xC740; &#xBCF4;&#xC874;&#xD558;&#xACE0; &#xD0C0;&#xC785;&#xB9CC; &#xBCC0;&#xACBD;&#xD558;&#xB294; &#xC774;&#xB2C8;&#xC15C;&#xB77C;&#xC774;&#xC800;&#xC758; &#xACBD;&#xC6B0; &#xCCAB; &#xBC88;&#xC9F8; &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xBB34;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xC2DC; : Int64(someUInt32)</p>
+<p>  <i><span style="color: #C0C0C0">The first argument should always be the source of the conversion.</span></i><br>  &#xD0C0;&#xC785; &#xBCC0;&#xD658;&#xC758; &#xB300;&#xC0C1;&#xC740; &#xBC18;&#xB4DC;&#xC2DC; &#xCCAB; &#xBC88;&#xC9F8; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xC5EC;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
   <span class="hljs-comment">// Convert `x` into its textual representation in the given radix</span>
-  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> x: <span class="hljs-type">BigInt</span>, radix: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>)   &#x2190; <span class="hljs-type">Note</span> the initial underscore
+  <span class="hljs-comment">// `x`&#xB97C; &#xC8FC;&#xC5B4;&#xC9C4; &#xAE30;&#xC218;(&#xAE30;&#xCD08;&#xAC00;&#xB418;&#xB294; &#xC218;, radix)&#xB0B4;&#xC5D0;&#xC11C; &#xBB38;&#xC790;&#xC801;&#xC778; &#xD45C;&#xD604;&#xC73C;&#xB85C; &#xBC14;&#xAFC9;&#xB2C8;&#xB2E4;. </span>
+  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> x: <span class="hljs-type">BigInt</span>, radix: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>)   &#x2190; <span class="hljs-type">Note</span> the initial underscore (&#xCD08;&#xAE30;&#xC758; &#xC5B8;&#xB354;&#xC2A4;&#xCF54;&#xC5B4;&#xB97C; &#xCC38;&#xACE0;&#xD569;&#xB2C8;&#xB2E4;.)
   }
 
   text = <span class="hljs-string">&quot;The value is: &quot;</span>
@@ -394,51 +420,57 @@ x.move(from: x, to: y)
   text += <span class="hljs-string">&quot; and in hexadecimal, it&apos;s&quot;</span>
   text += <span class="hljs-type">String</span>(veryLargeNumber, radix: <span class="hljs-number">16</span>)
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">In &#x201C;narrowing&#x201D; type conversions, though, a label that describes the narrowing is recommended.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">In &#x201C;narrowing&#x201D; type conversions, though, a label that describes the narrowing is recommended.</span></i><br>  &#xADF8;&#xB7EC;&#xB098; &#xD0C0;&#xC785;&#xBCC0;&#xD658; &#xB300;&#xC0C1;&#xC758; &#xBC94;&#xC704;&#xAC00; &#xD55C;&#xC815;&#xB41C; &#xACBD;&#xC6B0;, &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xD1B5;&#xD574; &#xADF8; &#xBC94;&#xC704;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xAC83;&#xC744; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">UInt32</span> </span>{
   <span class="hljs-comment">/// Creates an instance having the specified `value`.</span>
-  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> value: <span class="hljs-type">Int16</span>)            &#x2190; <span class="hljs-type">Widening</span>, so no label
+  <span class="hljs-comment">/// &#xD2B9;&#xC815;&#xD55C; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xB294; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </span>
+  <span class="hljs-keyword">init</span>(<span class="hljs-number">_</span> value: <span class="hljs-type">Int16</span>)            &#x2190; <span class="hljs-type">Widening</span>, so no label(&#xBC94;&#xC704;&#xAC00; &#xB113;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB808;&#xC774;&#xBE14;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.)
   <span class="hljs-comment">/// Creates an instance having the lowest 32 bits of `source`.</span>
+  <span class="hljs-comment">/// &#xAC00;&#xC7A5; &#xB0AE;&#xC740; 32&#xBE44;&#xD2B8;&#xB97C; &#xC790;&#xC6D0;&#xC73C;&#xB85C; &#xAC00;&#xC9C0;&#xB294; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</span>
   <span class="hljs-keyword">init</span>(truncating source: <span class="hljs-type">UInt64</span>)
   <span class="hljs-comment">/// Creates an instance having the nearest representable</span>
   <span class="hljs-comment">/// approximation of `valueToApproximate`.</span>
+  <span class="hljs-comment">/// `valueToApproximate`&#xC758; &#xD45C;&#xD604;&#xAC00;&#xB2A5;&#xD558;&#xACE0; </span>
+  <span class="hljs-comment">/// &#xAC00;&#xC7A5; &#xADFC;&#xC811;&#xD55C; &#xCD94;&#xC815;&#xCE58;&#xB97C; &#xAC00;&#xC9C0;&#xB294; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </span>
   <span class="hljs-keyword">init</span>(saturating valueToApproximate: <span class="hljs-type">UInt64</span>)
   }
 </code></pre>
 <blockquote>
 <p><i><span style="color: #C0C0C0">A value preserving type conversion is a <a href="https://en.wikipedia.org/wiki/Monomorphism" target="_blank">monomorphism</a>, i.e. every difference in the value of the source results in a difference in the value of the result. For example, conversion from Int8 to Int64 is value preserving because every distinct Int8 value is converted to a distinct Int64 value. Conversion in the other direction, however, cannot be value preserving: Int64 has more possible values than can be represented in an Int8.</span></i></p>
+<p>&#xAC12;&#xC744; &#xBCF4;&#xC874;&#xD558;&#xBA74;&#xC11C; &#xD0C0;&#xC785;&#xC744; &#xBC14;&#xAFB8;&#xB294;&#xAC83;&#xC744; <a href="https://en.wikipedia.org/wiki/Monomorphism" target="_blank">&#xB2E8;&#xD615;&#xC131;</a>&#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC989; &#xD0C0;&#xC785;&#xBCC0;&#xD658; &#xB300;&#xC0C1;&#xC758; &#xAC12;&#xC774; &#xB2E4;&#xB974;&#xBA74; &#xACB0;&#xACFC;&#xB3C4; &#xB2E4;&#xB985;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4; Int8&#xC5D0;&#xC11C; Int64&#xB85C; &#xD0C0;&#xC785;&#xC744; &#xBC14;&#xAFB8;&#xB294; &#xACBD;&#xC6B0; &#xAC12;&#xC774; &#xBCF4;&#xC874;&#xB418;&#xC9C0;&#xB9CC; &#xBC18;&#xB300;&#xC758; &#xACBD;&#xC6B0;&#xC5D4; &#xAC12;&#xC774; &#xBCF4;&#xC874;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC65C;&#xB0D0;&#xD558;&#xBA74; Int64&#xB294; Int8&#xD0C0;&#xC785;&#xC73C;&#xB85C; &#xBC14;&#xB00C;&#xBA74;&#xC11C; &#xB2E4;&#xC591;&#xD55C; &#xAC12;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xB420; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <p><i><span style="color: #C0C0C0">Note: the ability to retrieve the original value has no bearing on whether a conversion is value preserving.</span></i></p>
+<p>&#xCC38;&#xACE0; : &#xC6D0;&#xB798;&#xC758; &#xAC12;&#xC744; &#xAC80;&#xC0C9;&#xD560; &#xC218; &#xC788;&#xB294;&#xC9C0;&#xC758; &#xC5EC;&#xBD80;&#xB294; (&#xD0C0;&#xC785;)&#xBCC0;&#xD658;&#xC774; &#xAC12;&#xC744; &#xBCF4;&#xC874;&#xD558;&#xB294;&#xC9C0;&#xC758; &#xC5EC;&#xBD80;&#xC640; &#xAD00;&#xACC4;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 </li>
 </ul>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>When the first argument forms part of a <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">prepositional phrase</a>, give it an argument label.</strong> The argument label should normally begin at the <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">preposition</a>, e.g. x.removeBoxes(havingLength: 12).</span></i></p>
-<p>  <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>When the first argument forms part of a <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">prepositional phrase</a>, give it an argument label.</strong> The argument label should normally begin at the <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">preposition</a>, e.g. x.removeBoxes(havingLength: 12).</span></i><br>  <strong>&#xCCAB; &#xBC88;&#xC9F8; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xAC00; <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Prepositional_phrases" target="_blank">&#xC804;&#xCE58;&#xC0AC;&#xAD6C;</a>&#xC758; &#xC77C;&#xBD80;&#xB77C;&#xBA74;, &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;.</strong> &#xC774; &#xB54C; &#xC774; &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC740; &#xBC18;&#xB4DC;&#xC2DC; <a href="https://en.wikipedia.org/wiki/Preposition_and_postposition" target="_blank">&#xC804;&#xCE58;&#xC0AC;</a> &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. &#xC608; : x.removeBoxes(havingLength: 12)</p>
+<p>  <i><span style="color: #C0C0C0">An exception arises when the first two arguments represent parts of a single abstraction.</span></i><br>  &#xC608;&#xC678;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370; &#xCCAB; &#xBC88;&#xC9F8; &#xB450; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xB4E4;&#xC774; &#xB2E8;&#xC77C; &#xCD94;&#xC0C1;&#xD654;&#xC758; &#xC77C;&#xBD80;&#xB85C; &#xD45C;&#xD604;&#xB420; &#xB54C; &#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x274C;
   a.move(toX: b, y: <span class="hljs-built_in">c</span>)
   a.fade(fromRed: b, green: <span class="hljs-built_in">c</span>, blue: d)
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">In such cases, begin the argument label after the preposition, to keep the abstraction clear.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">In such cases, begin the argument label after the preposition, to keep the abstraction clear.</span></i><br>  &#xC774;&#xB7F0; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xCD94;&#xC0C1;&#xD654;&#xB97C; &#xC815;&#xD655;&#xD788; &#xD558;&#xAE30; &#xC704;&#xD574; &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xC804;&#xCE58;&#xC0AC; &#xB2E4;&#xC74C;&#xC5D0; &#xC2DC;&#xC791;&#xD558;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x2705;
   a.moveTo(x: b, y: <span class="hljs-built_in">c</span>)
   a.fadeFrom(red: b, green: <span class="hljs-built_in">c</span>, blue: d)
 </code></pre>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>Otherwise, if the first argument forms part of a grammatical phrase, omit its label,</strong> appending any preceding words to the base name, e.g. x.addSubview(y)</span></i></p>
-<p>  <i><span style="color: #C0C0C0">This guideline implies that if the first argument doesn&#x2019;t form part of a grammatical phrase, it should have a label.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Otherwise, if the first argument forms part of a grammatical phrase, omit its label,</strong> appending any preceding words to the base name, e.g. x.addSubview(y)</span></i><br>  <strong>&#xCCAB; &#xBC88;&#xC9F8; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xAC00; &#xBB38;&#xBC95;&#xAD6C;&#xBB38;&#xC758; &#xC77C;&#xBD80;&#xB77C;&#xBA74; &#xC804;&#xB2EC;&#xC778;&#xC790; &#xB808;&#xC774;&#xBE14;&#xC744; &#xBB34;&#xC2DC;&#xD558;&#xACE0;</strong> &#xAE30;&#xBCF8;&#xC774;&#xB984;&#xC5D0; &#xC120;&#xD589;&#xB2E8;&#xC5B4;&#xB97C; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;. &#xC608; :x.addSubview(y)</p>
+<p>  <i><span style="color: #C0C0C0">This guideline implies that if the first argument doesn&#x2019;t form part of a grammatical phrase, it should have a label.</span></i><br>  &#xC774; &#xAC00;&#xC774;&#xB4DC;&#xB77C;&#xC778;&#xC774; &#xC758;&#xBBF8;&#xD558;&#xB294; &#xAC83;&#xC740; &#xCCAB; &#xBC88;&#xC9F8; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xAC00; &#xBB38;&#xBC95;&#xAD6C;&#xBB38;&#xC758; &#xC77C;&#xBD80;&#xAC00; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xBC18;&#xB4DC;&#xC2DC; &#xB808;&#xC774;&#xBE14;&#xC744; &#xAC00;&#xC838;&#xC57C;&#xD55C;&#xB2E4;&#xB294;&#xAC83; &#xC785;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-swift">  &#x2705;
   view.dismiss(animated: <span class="hljs-literal">false</span>)
   <span class="hljs-keyword">let</span> text = words.<span class="hljs-built_in">split</span>(maxSplits: <span class="hljs-number">12</span>)
   <span class="hljs-keyword">let</span> studentsByName = students.sorted(isOrderedBefore: <span class="hljs-type">Student</span>.namePrecedes)
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Note that it&#x2019;s important that the phrase convey the correct meaning. The following would be grammatical but would express the wrong thing.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Note that it&#x2019;s important that the phrase convey the correct meaning. The following would be grammatical but would express the wrong thing.</span></i><br>  &#xBB38;&#xAD6C;&#xAC00; &#xC62C;&#xBC14;&#xB978; &#xC758;&#xBBF8;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xACE0; &#xC788;&#xB294;&#xC9C0;&#xAC00; &#xC911;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xC758; &#xB0B4;&#xC6A9;&#xC740; &#xBB38;&#xBC95;&#xC801;&#xC73C;&#xB85C;&#xB294; &#xB9DE;&#xC9C0;&#xB9CC; &#xC798;&#xBABB;&#xB41C; &#xC758;&#xBBF8;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x274C;
-  view.dismiss(<span class="hljs-literal">false</span>)   <span class="hljs-type">Don&apos;t</span> dismiss? <span class="hljs-type">Dismiss</span> a <span class="hljs-type">Bool</span>?
-  words.<span class="hljs-built_in">split</span>(<span class="hljs-number">12</span>)       <span class="hljs-type">Split</span> the number <span class="hljs-number">12</span>?
+  view.dismiss(<span class="hljs-literal">false</span>)   <span class="hljs-type">Don&apos;t</span> dismiss? <span class="hljs-type">Dismiss</span> a <span class="hljs-type">Bool</span>? (&#xD574;&#xC81C;&#xD558;&#xC9C0; &#xB9D0;&#xC544;&#xB77C;? <span class="hljs-type">Bool</span>&#xC744; &#xD574;&#xC81C;&#xD574;&#xB77C;?)
+  words.<span class="hljs-built_in">split</span>(<span class="hljs-number">12</span>)       <span class="hljs-type">Split</span> the number <span class="hljs-number">12</span>?(&#xC22B;&#xC790; <span class="hljs-number">12</span>&#xB97C; &#xB098;&#xB220;&#xB77C;?)
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Note also that arguments with default values can be omitted, and in that case do not form part of a grammatical phrase, so they should always have labels.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Note also that arguments with default values can be omitted, and in that case do not form part of a grammatical phrase, so they should always have labels.</span></i><br>  &#xB610;&#xD55C; &#xAE30;&#xBCF8;&#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xB294; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xB294; &#xBB34;&#xC2DC;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBB38;&#xBC95;&#xAD6C;&#xBB38;&#xC758; &#xC77C;&#xBD80;&#xAC00; &#xC544;&#xB2C8;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD56D;&#xC0C1; &#xB808;&#xC774;&#xBE14;&#xC744; &#xAC00;&#xC838;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 </li>
-<li><p><i><span style="color: #C0C0C0"><strong>Label all other arguments.</strong></span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Label all other arguments.</strong></span></i><br>  <strong>&#xB808;&#xC774;&#xBE14;&#xC740; &#xBAA8;&#xB450; &#xB2E4;&#xB978; &#xC804;&#xB2EC;&#xC778;&#xC790;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</strong></p>
 </li>
 </ul>
 
@@ -484,7 +516,7 @@ x.move(from: x, to: y)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Conventions","level":"2.3","depth":1,"next":{"title":"Special Instructions","level":"2.4","depth":1,"path":"APIDesignGuidelines/Special_Instructions.md","ref":"APIDesignGuidelines/Special_Instructions.md","articles":[]},"previous":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Conventions.md","mtime":"2022-03-10T02:29:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-10T05:00:58.244Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Conventions","level":"2.3","depth":1,"next":{"title":"Special Instructions","level":"2.4","depth":1,"path":"APIDesignGuidelines/Special_Instructions.md","ref":"APIDesignGuidelines/Special_Instructions.md","articles":[]},"previous":{"title":"Naming","level":"2.2","depth":1,"path":"APIDesignGuidelines/Naming.md","ref":"APIDesignGuidelines/Naming.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Conventions.md","mtime":"2022-04-07T01:05:56.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-07T01:09:47.593Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
