@@ -1,7 +1,7 @@
 {
     "structure":{
         "readme":"INTRO.md"
-    }
+    },
     
     "plugins": ["sitemap"],
     "pluginsConfig": {
