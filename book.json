@@ -1,5 +1,12 @@
 {
     "structure":{
         "readme":"INTRO.md"
+    },
+    
+    "plugins": ["sitemap"],
+    "pluginsConfig": {
+        "sitemap": {
+            "hostname": "https://yagom-academy.github.io/swift-doc-kor/"
+        }
     }
 }

@@ -226,61 +226,70 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="special-instructions">Special Instructions</h1>
+                                <h1 id="special-instructions&#xD2B9;&#xBCC4;-&#xC9C0;&#xCE68;&#xB4E4;">Special Instructions(&#xD2B9;&#xBCC4; &#xC9C0;&#xCE68;&#xB4E4;)</h1>
 <ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Label tuple members and name closure parameters</strong> where they appear in your API.</span></i></p>
-<p>  <i><span style="color: #C0C0C0">These names have explanatory power, can be referenced from documentation comments, and provide expressive access to tuple members.</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Label tuple members and name closure parameters</strong> where they appear in your API.</span></i><br>  API&#xC5D0; &#xD29C;&#xD50C;&#xACFC; &#xD074;&#xB85C;&#xC800;&#xAC00; &#xB4DC;&#xB7EC;&#xB098;&#xB294; &#xACF3;&#xC5D0;&#xC11C;, <strong>&#xD29C;&#xD50C;&#xC758; &#xBA64;&#xBC84;&#xB4E4;&#xC5D0; &#xB77C;&#xBCA8;&#xC744; &#xBD99;&#xC5EC;&#xC8FC;&#xACE0; &#xD074;&#xB85C;&#xC800;&#xC758; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB4E4;&#xC5D0; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC5B4;&#xC90D;&#xC2DC;&#xB2E4;.</strong></p>
+<p>  <i><span style="color: #C0C0C0">These names have explanatory power, can be referenced from documentation comments, and provide expressive access to tuple members.</span></i><br>  &#xC774;&#xB7EC;&#xD55C; &#xC774;&#xB984;&#xB4E4;&#xC740; &#xC124;&#xBA85;&#xB825;&#xC744; &#xAC16;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xBB38;&#xC11C; &#xC8FC;&#xC11D;&#xB4E4;&#xC5D0; &#xCC38;&#xC870;&#xB420; &#xC218; &#xC788;&#xACE0;, &#xD29C;&#xD50C;&#xC758; &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xB4E4;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC720;&#xC758;&#xBBF8;&#xD55C; &#xC811;&#xADFC;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  <span class="hljs-comment">/// Ensure that we hold uniquely-referenced storage for at least</span>
   <span class="hljs-comment">/// `requestedCapacity` elements.</span>
+  <span class="hljs-comment">/// &#xCD5C;&#xC18C;&#xD55C; &apos;requestedCapacity&apos;&#xB9CC;&#xD07C; &#xC720;&#xC77C;&#xD55C; &#xCC38;&#xC870; storage&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;&#xB294; &#xAC78; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;.</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// If more storage is needed, `allocate` is called with</span>
   <span class="hljs-comment">/// `byteCount` equal to the number of maximally-aligned</span>
   <span class="hljs-comment">/// bytes to allocate.</span>
+  <span class="hljs-comment">/// &#xB9CC;&#xC57D; &#xB354; &#xB9CE;&#xC740; storage&#xAC00; &#xD544;&#xC694;&#xD558;&#xB2E4;&#xBA74;,</span>
+  <span class="hljs-comment">/// &#xD560;&#xB2F9;&#xC744; &#xC704;&#xD574; &#xCD5C;&#xB300;&#xB85C; &#xC870;&#xC815;&#xB41C; bytes &#xAC2F;&#xC218;&#xC778; &apos;byteCount&apos;&#xC640; &#xD568;&#xAED8;</span>
+  <span class="hljs-comment">/// &apos;allocate&apos;&#xAC00; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;</span>
   <span class="hljs-comment">///</span>
   <span class="hljs-comment">/// - Returns:</span>
   <span class="hljs-comment">///   - reallocated: `true` iff a new block of memory</span>
   <span class="hljs-comment">///     was allocated.</span>
   <span class="hljs-comment">///   - capacityChanged: `true` iff `capacity` was updated.</span>
+  <span class="hljs-comment">/// - &#xBC18;&#xD658;&#xAC12;&#xB4E4;:</span>
+  <span class="hljs-comment">///   - reallocated: &#xC0C8;&#xB85C;&#xC6B4; &#xBA54;&#xBAA8;&#xB9AC; &#xBE14;&#xB85D;&#xC774; &#xD560;&#xB2F9;&#xB41C; &#xACBD;&#xC6B0; `true` </span>
+  <span class="hljs-comment">///   - capacityChanged: `capacity`&#xAC00; &#xAC31;&#xC2E0;&#xB41C; &#xACBD;&#xC6B0; `true`</span>
   <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ensureUniqueStorage</span><span class="hljs-params">(
       minimumCapacity requestedCapacity: Int, 
       allocate: <span class="hljs-params">(<span class="hljs-number">_</span> byteCount: Int)</span></span></span> -&gt; <span class="hljs-type">UnsafePointer</span>&lt;<span class="hljs-type">Void</span>&gt;
   ) -&gt; (reallocated: <span class="hljs-type">Bool</span>, capacityChanged: <span class="hljs-type">Bool</span>)
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Names used for closure parameters should be chosen like <code>parameter names</code> for top-level functions. Labels for closure arguments that appear at the call site are not supported.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">Names used for closure parameters should be chosen like <code>parameter names</code> for top-level functions. Labels for closure arguments that appear at the call site are not supported.</span></i><br>  &#xD074;&#xB85C;&#xC800;&#xC758; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; &#xAC83;&#xACFC; &#xAC19;&#xC740; &#xC774;&#xB984;&#xB4E4;&#xC740;, &#xCD5C;&#xC0C1;&#xC704; &#xD568;&#xC218;&#xB4E4;&#xC744; &#xC704;&#xD574;&#xC11C; <code>&#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xC774;&#xB984;&#xB4E4;</code>&#xCC98;&#xB7FC; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xD638;&#xCD9C;&#xBD80;&#xC5D0;&#xC11C; &#xD45C;&#xD604;&#xB418;&#xB294; &#xD074;&#xB85C;&#xC800;&#xC758; &#xC778;&#xC790;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; &#xB77C;&#xBCA8;&#xB4E4;&#xC740; &#xB300;&#xC0C1;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.    </p>
 </li>
-</ul>
-<ul>
-<li><p><i><span style="color: #C0C0C0"><strong>Take extra care with unconstrained polymorphism</strong> (e.g. Any, AnyObject, and unconstrained generic parameters) to avoid ambiguities in overload sets.</span></i></p>
-<p>  <i><span style="color: #C0C0C0">For example, consider this overload set:</span></i></p>
+<li><p><i><span style="color: #C0C0C0"><strong>Take extra care with unconstrained polymorphism</strong> (e.g. Any, AnyObject, and unconstrained generic parameters) to avoid ambiguities in overload sets.</span></i><br>  overload &#xC9D1;&#xD569;&#xB4E4;&#xC5D0;&#xC11C; &#xC560;&#xB9E4;&#xD568;&#xC744; &#xD53C;&#xD558;&#xAE30; &#xC704;&#xD574;, <strong>&#xC81C;&#xD55C;&#xC0AC;&#xD56D;&#xC774; &#xC5C6;&#xB294; &#xB2E4;&#xD615;&#xC131;&#xC744; &#xD2B9;&#xBCC4;&#xD788; &#xC2E0;&#xACBD;&#xC501;&#xC2DC;&#xB2E4;</strong> (&#xC608;&#xB97C; &#xB4E4;&#xBA74; Any, AnyObject, &#xC81C;&#xD55C;&#xC0AC;&#xD56D;&#xC774; &#xC5C6;&#xB294; &#xC81C;&#xB124;&#xB9AD; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB4E4;)</p>
+<p>  <i><span style="color: #C0C0C0">For example, consider this overload set:</span></i><br>  &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xC544;&#xB798;&#xC758; overload &#xC9D1;&#xD569;&#xB4E4;&#xC744; &#xACE0;&#xB824;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x274C;
   <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Array</span> </span>{
       <span class="hljs-comment">/// Inserts `newElement` at `self.endIndex`.</span>
+      <span class="hljs-comment">// `self.endIndex`&#xC5D0; newElement&#xB97C; &#xB123;&#xB294;&#xB2E4;</span>
       <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElement: Element)</span></span>
 
       <span class="hljs-comment">/// Inserts the contents of `newElements`, in order, at</span>
       <span class="hljs-comment">/// `self.endIndex`.</span>
+      <span class="hljs-comment">// `self.endIndex`&#xC5D0; newElement&#xC758; &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xB97C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xB123;&#xB294;&#xB2E4;</span>
       <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElements: S)</span></span>
           <span class="hljs-keyword">where</span> <span class="hljs-type">S</span>.<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span> == <span class="hljs-type">Element</span>
   }
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">These methods form a semantic family, and the argument types appear at first to be sharply distinct. However, when Element is Any, a single element can have the same type as a sequence of elements.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">These methods form a semantic family, and the argument types appear at first to be sharply distinct. However, when Element is Any, a single element can have the same type as a sequence of elements.</span></i><br>  &#xC704; &#xBA54;&#xC11C;&#xB4DC;&#xB4E4;&#xC740; &#xD558;&#xB098;&#xC758; &#xC758;&#xBBF8;&#xB860;&#xC801; &#xC9D1;&#xB2E8;&#xC744; &#xD615;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xC5B4;&#xC11C; &#xB098;&#xD0C0;&#xB098;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xC778;&#xC790;&#xC758; &#xD0C0;&#xC785;&#xB4E4;&#xC740; &#xBD84;&#xBA85;&#xD558;&#xAC8C; &#xAD6C;&#xBCC4;&#xB429;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; Element&#xAC00; Any&#xB77C;&#xBA74;, &#xB2E8;&#xC77C;&#xC694;&#xC18C;&#xAC00; &#xC694;&#xC18C;&#xB4E4;&#xC758; &#xC2DC;&#xD000;&#xC2A4;&#xC640; &#xAC19;&#xC740; &#xD0C0;&#xC785;&#xC744; &#xAC00;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-swift">  &#x274C;
   <span class="hljs-keyword">var</span> values: [<span class="hljs-type">Any</span>] = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;a&quot;</span>]
   values.append([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]) <span class="hljs-comment">// [1, &quot;a&quot;, [2, 3, 4]] or [1, &quot;a&quot;, 2, 3, 4]?</span>
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">To eliminate the ambiguity, name the second overload more explicitly.</span></i></p>
+<p>  <i><span style="color: #C0C0C0">To eliminate the ambiguity, name the second overload more explicitly.</span></i><br>  &#xBAA8;&#xD638;&#xD568;&#xC744; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574;&#xC11C;, &#xB450;&#xBC88;&#xC9F8; overload&#xB294; &#xBCF4;&#xB2E4; &#xBD84;&#xBA85;&#xD558;&#xAC8C; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC5B4;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;</p>
 <pre><code class="lang-swift">  &#x2705;
   <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Array</span> </span>{
       <span class="hljs-comment">/// Inserts `newElement` at `self.endIndex`.</span>
+      <span class="hljs-comment">// `self.endIndex`&#xC5D0; newElement&#xB97C; &#xB123;&#xB294;&#xB2E4;</span>
       <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-number">_</span> newElement: Element)</span></span>
 
       <span class="hljs-comment">/// Inserts the contents of `newElements`, in order, at</span>
       <span class="hljs-comment">/// `self.endIndex`.</span>
+      <span class="hljs-comment">// `self.endIndex`&#xC5D0; newElement&#xC758; &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xB97C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xB123;&#xB294;&#xB2E4;</span>
       <span class="hljs-keyword">public</span> <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">append</span><span class="hljs-params">(contentsOf newElements: S)</span></span>
           <span class="hljs-keyword">where</span> <span class="hljs-type">S</span>.<span class="hljs-type">Generator</span>.<span class="hljs-type">Element</span> == <span class="hljs-type">Element</span>
   }
 </code></pre>
-<p>  <i><span style="color: #C0C0C0">Notice how the new name better matches the documentation comment. In this case, the act of writing the documentation comment actually brought the issue to the API author&#x2019;s attention.</span><i></i></i></p>
+<p>  <i><span style="color: #C0C0C0">Notice how the new name better matches the documentation comment. In this case, the act of writing the documentation comment actually brought the issue to the API author&#x2019;s attention.</span><i><br>  &#xC0C8;&#xB85C;&#xC6B4; &#xC774;&#xB984;&#xACFC; &#xBB38;&#xC11C; &#xC8FC;&#xC11D;&#xC774; &#xC5BC;&#xB9C8;&#xB098; &#xB354; &#xC798; &#xC5B4;&#xC6B8;&#xB9AC;&#xB294;&#xC9C0; &#xC8FC;&#xBAA9;&#xD574;&#xC8FC;&#xC138;&#xC694;. &#xC774;&#xCC98;&#xB7FC;, &#xBB38;&#xC11C; &#xC8FC;&#xC11D;&#xC744; &#xC801;&#xB294; &#xD589;&#xC704;&#xB294; &#xC2E4;&#xC81C;&#xB85C; API &#xC791;&#xC131;&#xC790;&#xC758; &#xC774;&#xBAA9;&#xC744; &#xB04C;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</i></i></p>
 </li>
 </ul>
 
@@ -326,7 +335,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Special Instructions","level":"2.4","depth":1,"next":{"title":"Revision History","level":"3.1","depth":1,"path":"APIDesignGuidelines/Revision_History.md","ref":"APIDesignGuidelines/Revision_History.md","articles":[]},"previous":{"title":"Conventions","level":"2.3","depth":1,"path":"APIDesignGuidelines/Conventions.md","ref":"APIDesignGuidelines/Conventions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Special_Instructions.md","mtime":"2022-03-10T01:54:18.682Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-10T05:00:58.244Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Special Instructions","level":"2.4","depth":1,"next":{"title":"Revision History","level":"3.1","depth":1,"path":"APIDesignGuidelines/Revision_History.md","ref":"APIDesignGuidelines/Revision_History.md","articles":[]},"previous":{"title":"Conventions","level":"2.3","depth":1,"path":"APIDesignGuidelines/Conventions.md","ref":"APIDesignGuidelines/Conventions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["sitemap"],"pluginsConfig":{"sitemap":{"hostname":"https://yagom-academy.github.io/swift-doc-kor/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIDesignGuidelines/Special_Instructions.md","mtime":"2022-04-07T01:07:09.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-07T07:30:34.279Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

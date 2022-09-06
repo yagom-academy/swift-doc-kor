@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@gitbook-ng/gitbook-plugin-sitemap": "^1.3.2",
+    "gitbook-plugin-sitemap": "^1.2.0"
+  }
+}
