@@ -333,5 +333,7 @@ x.move(from: x, to: y)
     <i><span style="color: #C0C0C0">Note also that arguments with default values can be omitted, and in that case do not form part of a grammatical phrase, so they should always have labels.</span></i>   
     또한 기본값을 가지는 전달인자는 무시될 수 있습니다. 이 경우에는 문법구문의 일부가 아니기 때문에 항상 레이블을 가져야 합니다.
     
-- <i><span style="color: #C0C0C0">**Label all other arguments.**</span></i>     
-    **레이블은 모두 다른 전달인자들입니다.**
+
+- <i><span style="color: #C0C0C0">**Label all other arguments.**</span></i>
+
+- **(그외) 다른 전달인자들은 이름붙이세요.**
