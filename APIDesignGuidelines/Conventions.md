@@ -355,4 +355,4 @@ x.move(from: x, to: y)
     
 - <i><span style="color: #C0C0C0">**Label all other arguments.**</span></i>
 
-- **레이블은 모두 다른 전달인자들입니다.**
+- **(그외) 다른 전달인자들은 이름붙이세요.**
